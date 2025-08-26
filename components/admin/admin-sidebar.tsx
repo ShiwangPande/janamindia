@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, FileText, Users, Settings, ImageIcon, MessageSquare, BarChart3, Globe } from "lucide-react"
+import { LayoutDashboard, FileText, Users, Settings, ImageIcon, MessageSquare, BarChart3 } from "lucide-react"
+import Image from "next/image"
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -22,7 +23,7 @@ export function AdminSidebar() {
     <div className="w-64 bg-white border-r border-gray-200 min-h-screen">
       <div className="p-6">
         <div className="flex items-center space-x-2">
-          <Globe className="h-8 w-8 text-primary" />
+          <Image src="/logo.jpg" alt="Janam logo" width={32} height={32} className="rounded" />
           <div>
             <h2 className="text-lg font-semibold">Janam CMS</h2>
             <p className="text-xs text-muted-foreground">Admin Panel</p>

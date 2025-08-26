@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageToggle } from "@/components/language-toggle"
@@ -22,10 +23,8 @@ export function SiteHeader() {
     <header className="border-b bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <span className="bg-primary/10 rounded-full p-2 shadow-sm">
-            <Heart className="h-8 w-8 text-primary" />
-          </span>
-          <span className="text-2xl font-bold text-primary font-[family-name:var(--font-space-grotesk)] drop-shadow-sm tracking-tight">Janam</span>
+          <Image src="/logo.jpg" alt="Janam logo" width={36} height={36} className="rounded-md shadow-sm" />
+          <span className="text-2xl font-bold text-primary font-[family-name:var(--font-merriweather)] drop-shadow-sm tracking-tight">Janam</span>
         </div>
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-2">

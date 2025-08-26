@@ -31,13 +31,13 @@ export default function HomePage() {
       <ProgramSnippets />
 
       {/* Midwifery Training Teaser */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="secondary" className="mb-4">
               Training Program
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-[family-name:var(--font-space-grotesk)]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-[family-name:var(--font-merriweather)]">
               Empowering Community Midwives
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
             </div>
-            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+            <Button size="lg" className="" asChild>
               <a href="/training">Learn About Training</a>
             </Button>
           </div>
@@ -87,13 +87,13 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-12">
+      <footer className="bg-[var(--jn-forest)] text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Heart className="h-6 w-6" />
-                <span className="text-xl font-bold font-[family-name:var(--font-space-grotesk)]">Janam</span>
+                <span className="text-xl font-bold font-[family-name:var(--font-merriweather)]">Janam</span>
               </div>
               <p className="text-sm opacity-80">
                 Safe births. Stronger families. Community-driven maternal health across rural India.
@@ -126,7 +126,7 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-background/20 mt-8 pt-8 text-center text-sm opacity-60">
+          <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm opacity-80">
             <p>&copy; 2024 Janam. All rights reserved. | Privacy Policy | Terms of Service</p>
           </div>
         </div>

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "check:palette": "node -e \"const fs=require('fs');const globs=['styles','components','app'];const allow=new Set(['#2E7D32','#A5D6A7','#1B5E20','#FFB5A7','#FFF3E6','#424242','#BDBDBD','#7A2E2E','#FFFFFF']);const hexRe=/#([A-Fa-f0-9]{6})/g;let bad=[];function scan(dir){for(const f of fs.readdirSync(dir)){const p=dir+'/'+f;const s=fs.statSync(p);if(s.isDirectory()) scan(p); else if(/[.](css|tsx|ts|jsx|js)$/.test(p)){const t=fs.readFileSync(p,'utf8');let m;while((m=hexRe.exec(t))){const h='#'+m[1].toUpperCase();if(!allow.has(h)) bad.push(p+':'+h);}}}};globs.forEach(scan);if(bad.length){console.error('Non-allowed HEX found:',bad);process.exit(1);} else {console.log('Palette check passed.');}\"",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",

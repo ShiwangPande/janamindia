@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -16,7 +17,8 @@ export function AdminHeader() {
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          <Image src="/logo.jpg" alt="Janam logo" width={28} height={28} className="rounded" />
           <h1 className="text-xl font-semibold">Content Management System</h1>
         </div>
 
