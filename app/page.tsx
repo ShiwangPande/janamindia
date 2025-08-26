@@ -16,15 +16,30 @@ export default function LanguageLandingRoot() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
+    <div className="min-h-screen relative overflow-hidden bg-[radial-gradient(1200px_700px_at_50%_-20%,#EDE6D7_0%,transparent_60%)]">
+      {/* subtle paper grain */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{backgroundImage:"radial-gradient(#000 0.8px, transparent 0.8px)", backgroundSize:"5px 5px"}} />
 
       {/* Header brand mark */}
-      <div className="container mx-auto px-6 pt-10 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Image src="/logo.jpg" alt="Janam logo" width={40} height={40} className="rounded-md" />
-          <div>
-            <div className="text-2xl font-bold text-foreground font-[family-name:var(--font-space-grotesk)]">Janam</div>
-            <div className="text-sm text-muted-foreground">Safe births. Stronger families.</div>
+      <div className="container mx-auto px-6 pt-16 flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <div className="relative">
+            <Image 
+              src="/logo.jpg" 
+              alt="Janam logo" 
+              width={72} 
+              height={72} 
+              className="rounded-xl shadow-lg ring-2 ring-white/20" 
+            />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent" />
+          </div>
+          <div className="flex flex-col">
+            <div className="font-logo text-5xl md:text-7xl leading-none text-primary tracking-tight drop-shadow-sm">
+              Janam
+            </div>
+            <div className="text-sm md:text-base text-muted-foreground font-medium">
+              Safe births. Stronger families.
+            </div>
           </div>
         </div>
         <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
@@ -33,94 +48,57 @@ export default function LanguageLandingRoot() {
       </div>
 
       {/* Hero */}
-      <main className="container mx-auto px-6 py-10 md:py-16">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
-          <section className="space-y-6">
-            <div className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-muted text-foreground">
-              Maternal Health Initiative
-            </div>
-            <h1 className="text-4xl md:text-6xl leading-tight font-[family-name:var(--font-space-grotesk)] font-bold text-foreground">
-              Healthy Mothers, Healthy Futures
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Community midwifery, mobile clinics and education — built with and for rural India.
-            </p>
+      <main className="container mx-auto px-6 py-12 md:py-20">
+        <div className="mx-auto max-w-3xl">
+          <div className="relative rounded-[20px] border border-[#D7CCB8] bg-[#FCF8EF] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+            {/* corner ornaments */}
+            <div className="absolute -top-6 -left-6 h-20 w-20 rounded-full bg-[#A5D6A7]/30 blur-2xl" />
+            <div className="absolute -bottom-8 -right-6 h-24 w-24 rounded-full bg-[#FFB5A7]/30 blur-2xl" />
+            <div className="relative p-7 md:p-10">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium bg-[#FFF3E6] text-[#7A2E2E] border border-[#F1E2D3]">
+                  Choose language · भाषा चुनें
+                </div>
+              </div>
+              <h1 className="text-center text-[30px] md:text-[46px] leading-[1.1] font-[family-name:var(--font-merriweather)] text-foreground">
+                Healthy Mothers, Healthy Futures · स्वस्थ माताएं, स्वस्थ भविष्य
+              </h1>
+              <p className="mt-3 text-center text-[15px] md:text-base text-foreground/75">
+                Vintage, human‑first maternal care — warm, dignified and community‑led.
+              </p>
 
-            {/* Language choice */}
-            <div className="mt-6">
-              <div className="text-sm mb-2 text-muted-foreground">Choose language · भाषा चुनें</div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Button
                   size="lg"
-                  className="h-14 text-lg w-full"
+                  className="h-14 rounded-[999px] text-lg w-full bg-[#2E7D32] hover:bg-[#2E7D32]/90"
                   onClick={() => choose("en")}
+                  aria-label="Continue in English"
                 >
-                  English
+                  English · अंग्रेज़ी
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 text-lg w-full"
+                  className="h-14 rounded-[999px] text-lg w-full border-[#D7CCB8] hover:bg-[#F9F3E6]"
                   onClick={() => choose("hi")}
+                  aria-label="हिन्दी में जारी रखें"
                 >
-                  हिन्दी
+                  हिन्दी · Hindi
                 </Button>
               </div>
-            </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-3">
-              <Button asChild className="w-full sm:w-auto">
-                <a href="/get-involved#donate">Donate</a>
-              </Button>
-              <Button asChild variant="outline" className="w-full sm:w-auto">
-                <a href="/get-involved#partner">Partner</a>
-              </Button>
+              <div className="mt-6 flex items-center justify-center gap-3 text-[11px] text-foreground/60">
+                <span className="px-3 py-1 rounded-full bg-white/80 border border-[#E8DFCF]">80G Registered</span>
+                <span className="px-3 py-1 rounded-full bg-white/80 border border-[#E8DFCF]">Community‑led</span>
+                <span className="px-3 py-1 rounded-full bg-white/80 border border-[#E8DFCF]">Human‑first</span>
+              </div>
             </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-3 pt-4 text-xs text-muted-foreground">
-              <span className="px-3 py-1 rounded-full bg-card/70 border">80G Registered</span>
-              <span className="px-3 py-1 rounded-full bg-card/70 border">Community-led</span>
-              <span className="px-3 py-1 rounded-full bg-card/70 border">Human-first Design</span>
-            </div>
-          </section>
-
-          {/* Illustration / Feature panel */}
-          <section>
-            <Card className="border shadow-md bg-card/90 backdrop-blur">
-              <CardContent className="p-6 md:p-8">
-                <div className="grid gap-4">
-                  <div className="rounded-lg p-5 bg-primary text-primary-foreground">
-                    <div className="text-sm/relaxed opacity-90">Impact</div>
-                    <div className="text-2xl font-bold">25,000+ safe care touchpoints</div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-lg p-4 bg-muted text-foreground">
-                      <div className="text-xs">Midwives Trained</div>
-                      <div className="text-xl font-bold">450+</div>
-                    </div>
-                    <div className="rounded-lg p-4 bg-card text-foreground">
-                      <div className="text-xs">Container Clinics</div>
-                      <div className="text-xl font-bold">12</div>
-                    </div>
-                    <div className="rounded-lg p-4 bg-secondary text-secondary-foreground">
-                      <div className="text-xs">Villages Reached</div>
-                      <div className="text-xl font-bold">150+</div>
-                    </div>
-                  </div>
-                  <div className="rounded-lg p-5 border text-foreground bg-card">
-                    "A dignified, local model for safer births." — Program Partner
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
+          </div>
         </div>
       </main>
 
       {/* Footer strip */}
-      <div className="px-6 text pb-8">
+      <div className="px-6 text pb-10">
         <div className="container mx-auto">
           <div className="h-px bg-border" />
           <div className="text-xs text-muted-foreground pt-4">© 2024 Janam</div>
