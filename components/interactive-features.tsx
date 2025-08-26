@@ -148,40 +148,7 @@ export function InteractiveFeatures() {
             </div>
           </Card>
 
-          {/* Interactive Stats */}
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <Card className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <CardHeader>
-                <Heart className="h-8 w-8 text-destructive mx-auto mb-2" />
-                <CardTitle className="text-2xl font-bold">12,500+</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{language === "hi" ? "सुरक्षित प्रसव" : "Safe Deliveries"}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <CardHeader>
-                <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                <CardTitle className="text-2xl font-bold">450+</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  {language === "hi" ? "प्रशिक्षित दाइयां" : "Trained Midwives"}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <CardHeader>
-                <MapPin className="h-8 w-8 text-secondary mx-auto mb-2" />
-                <CardTitle className="text-2xl font-bold">150+</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{language === "hi" ? "गांव पहुंचे" : "Villages Reached"}</p>
-              </CardContent>
-            </Card>
-          </div>
+         
 
           {/* Call to Action */}
           <div className="text-center mt-12">

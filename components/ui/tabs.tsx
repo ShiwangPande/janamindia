@@ -26,7 +26,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        "bg-muted text-muted-foreground flex h-10 w-full items-center gap-2 rounded-lg p-1 flex-wrap md:flex-nowrap md:overflow-x-auto md:whitespace-nowrap",
         className
       )}
       {...props}
@@ -43,7 +43,7 @@ function TabsTrigger({
       data-slot="tabs-trigger"
       className={cn(
         // Add a border, background, and hover effect for better button appearance
-        "text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-muted bg-white dark:bg-zinc-900 px-2 py-1 text-sm font-medium whitespace-nowrap transition-all focus-visible:ring-[3px] focus-visible:outline-1 focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-muted/60 hover:border-primary/60 data-[state=active]:bg-primary/90 data-[state=active]:text-primary-foreground data-[state=active]:border-primary data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground dark:text-muted-foreground inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-muted bg-white dark:bg-zinc-900 px-3 py-1 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-muted/60 hover:border-primary/60 data-[state=active]:bg-primary/90 data-[state=active]:text-primary-foreground data-[state=active]:border-primary data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

@@ -1,7 +1,9 @@
 "use client"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { BookOpen, Users, Award, Calendar, Download, Play, ArrowRight } from "lucide-react"
 import { TrainingOverview } from "@/components/training-overview"
 import { ApplicationForm } from "@/components/application-form"
@@ -12,6 +14,7 @@ import { useLanguage } from "@/lib/language-context"
 
 export default function TrainingPage() {
   const { t } = useLanguage()
+  const [activeTab, setActiveTab] = useState("overview")
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -46,8 +49,23 @@ export default function TrainingPage() {
       {/* Main Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="overview" className="max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4 mb-12 gap-2 bg-[#A5D6A7]/40 rounded-lg p-1">
+          {/* Mobile: select control */}
+          <div className="md:hidden mb-4">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger className="w-full h-12 text-base rounded-[12px] border bg-white">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="overview">{t("training.overview")}</SelectItem>
+                <SelectItem value="apply">{t("training.apply")}</SelectItem>
+                <SelectItem value="schedule">{t("training.schedule")}</SelectItem>
+                <SelectItem value="resources">{t("training.resources")}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-7xl mx-auto">
+            <TabsList className="mb-8 hidden h-12  md:grid md:grid-cols-4">
               <TabsTrigger
                 value="overview"
                 className="flex items-center space-x-2 font-semibold rounded-md transition-colors data-[state=active]:bg-[#2E7D32] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#2E7D32] shadow-sm border border-[#2E7D32]/20 py-3"

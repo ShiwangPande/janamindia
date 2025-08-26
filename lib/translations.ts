@@ -9,6 +9,42 @@ export const translations = {
       about: "About",
       contact: "Contact",
     },
+    // About / Team / Problem / Solution / Fathers / Booklet / Media / Contact
+    teamPage: {
+      title: "Team",
+      subtitle: "The people behind our mission",
+    },
+    problemPage: {
+      title: "The Problem",
+      subtitle: "Maternal and infant mortality and rural care challenges",
+    },
+    solutionPage: {
+      title: "Our Solution",
+      subtitle: "Programs that save lives",
+    },
+    fathersPage: {
+      title: "Fathers for Care",
+      subtitle: "Engaging fathers in safe birthing and newborn care",
+    },
+    bookletPage: {
+      title: "Pregnancy Booklet",
+      subtitle: "Simple, visual guide to pregnancy and newborn care",
+      downloadEn: "Download (EN)",
+      downloadHi: "Download (HI)",
+      preview: "Preview",
+    },
+    mediaPage: {
+      title: "Media & Updates",
+      subtitle: "Press mentions, awards and recognitions",
+    },
+    contactPage: {
+      title: "Contact Us",
+      subtitle: "Have a question or want to collaborate?",
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      send: "Send Message",
+    },
     // Homepage
     hero: {
       title: "Safe Births, Healthy Futures",
@@ -355,6 +391,42 @@ export const translations = {
       training: "प्रशिक्षण",
       about: "हमारे बारे में",
       contact: "संपर्क",
+    },
+    // About / Team / Problem / Solution / Fathers / Booklet / Media / Contact
+    teamPage: {
+      title: "टीम",
+      subtitle: "हमारे मिशन के पीछे लोग",
+    },
+    problemPage: {
+      title: "समस्या",
+      subtitle: "मातृ और शिशु मृत्यु तथा ग्रामीण चुनौतियां",
+    },
+    solutionPage: {
+      title: "हमारा समाधान",
+      subtitle: "जीवन बचाने वाले कार्यक्रम",
+    },
+    fathersPage: {
+      title: "फादर्स फॉर केयर",
+      subtitle: "सुरक्षित प्रसव और नवजात देखभाल में पिताओं की भागीदारी",
+    },
+    bookletPage: {
+      title: "गर्भावस्था पुस्तिका",
+      subtitle: "गर्भावस्था और नवजात देखभाल के लिए सरल, दृश्य मार्गदर्शिका",
+      downloadEn: "डाउनलोड (EN)",
+      downloadHi: "डाउनलोड (HI)",
+      preview: "पूर्वावलोकन",
+    },
+    mediaPage: {
+      title: "मीडिया और अपडेट",
+      subtitle: "प्रेस उल्लेख, पुरस्कार और मान्यताएं",
+    },
+    contactPage: {
+      title: "संपर्क करें",
+      subtitle: "कोई प्रश्न है या सहयोग करना चाहते हैं?",
+      name: "नाम",
+      email: "ईमेल",
+      message: "संदेश",
+      send: "संदेश भेजें",
     },
     // Homepage
     hero: {

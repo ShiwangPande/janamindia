@@ -27,13 +27,13 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{animationDelay: "120ms"}}>
-              <Button size="lg" variant="destructive" className="text-base md:text-lg px-8" asChild>
+              <Button size="lg" variant="destructive" className="w-full sm:w-auto text-base md:text-lg px-8" asChild>
                 <a href="/get-involved#donate">
                   {t("hero.donateButton")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-base md:text-lg px-8" asChild>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto text-base md:text-lg px-8" asChild>
                 <a href="#impact">{language === "hi" ? "और जानें" : "Learn More"}</a>
               </Button>
             </div>

@@ -125,3 +125,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Brand Logo Font (fallback to support direct CSS usage alongside next/font) */
+@font-face {
+  font-family: "LogoFont";
+  src: url("/FeelfreePersonalUseRegular-lg2Bw.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Utility to use the logo font variable or fallback */
+.font-logo {
+  font-family: var(--font-logo), "LogoFont", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}

@@ -185,7 +185,7 @@ export function InteractiveDashboard() {
       {/* Charts Grid */}
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Monthly Trends */}
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>{t("dashboard.monthlyTrends")}</CardTitle>
             <CardDescription>{t("dashboard.monthlyTrendsDesc")}</CardDescription>
@@ -213,7 +213,7 @@ export function InteractiveDashboard() {
               </AreaChart>
             </ResponsiveContainer>
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* State-wise Distribution */}
         <Card>

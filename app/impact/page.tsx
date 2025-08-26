@@ -1,17 +1,28 @@
 "use client"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { BarChart3, Users, MapPin, Calendar, Play, ArrowRight } from "lucide-react"
 import { InteractiveDashboard } from "@/components/interactive-dashboard"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { TimelineMilestones } from "@/components/timeline-milestones"
 import { ContainerWalkthrough } from "@/components/container-walkthrough"
+import { Container3DPlaceholder } from "@/components/container-3d"
 import { SiteHeader } from "@/components/site-header"
 import { useLanguage } from "@/lib/language-context"
 
 export default function ImpactPage() {
   const { t } = useLanguage()
+  const [activeTab, setActiveTab] = useState("dashboard")
+  const sections = [
+    { value: "dashboard", label: t("impactPage.dashboard"), icon: BarChart3 },
+    { value: "stories", label: t("impactPage.stories"), icon: Users },
+    { value: "timeline", label: t("impactPage.timeline"), icon: Calendar },
+    { value: "container", label: t("impactPage.container") || "Container Tour", icon: MapPin },
+  ] as const
+  const current = sections.find((s) => s.value === activeTab) || sections[0]
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -42,8 +53,31 @@ export default function ImpactPage() {
       {/* Main Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="dashboard" className="max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-4 mb-12">
+          {/* Mobile: Select control for sections */}
+          <div className="md:hidden mb-4">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger className="w-full h-12 text-base rounded-[12px] border bg-white">
+                <div className="flex items-center gap-2">
+                  <current.icon className="h-5 w-5 text-primary" />
+                  <span className="font-semibold">{current.label}</span>
+                </div>
+              </SelectTrigger>
+              <SelectContent>
+                {sections.map((s) => (
+                  <SelectItem key={s.value} value={s.value}>
+                    <span className="flex items-center gap-2">
+                      <s.icon className="h-4 w-4" />
+                      {s.label}
+                    </span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          {/* Mobile title removed to avoid duplication with trigger */}
+
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-7xl mx-auto">
+            <TabsList className="mb-6 hidden h-12  md:grid md:grid-cols-4">
               <TabsTrigger value="dashboard" className="flex items-center space-x-2">
                 <BarChart3 className="h-4 w-4" />
                 <span>{t("impactPage.dashboard")}</span>
@@ -75,7 +109,10 @@ export default function ImpactPage() {
             </TabsContent>
 
             <TabsContent value="container">
-              <ContainerWalkthrough />
+              <div className="space-y-6">
+                <Container3DPlaceholder />
+                <ContainerWalkthrough />
+              </div>
             </TabsContent>
           </Tabs>
         </div>

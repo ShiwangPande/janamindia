@@ -34,7 +34,7 @@ export default function LanguageLandingRoot() {
 
       {/* Hero */}
       <main className="container mx-auto px-6 py-10 md:py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <section className="space-y-6">
             <div className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-muted text-foreground">
               Maternal Health Initiative
@@ -52,7 +52,7 @@ export default function LanguageLandingRoot() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Button
                   size="lg"
-                  className="h-14 text-lg"
+                  className="h-14 text-lg w-full"
                   onClick={() => choose("en")}
                 >
                   English
@@ -60,7 +60,7 @@ export default function LanguageLandingRoot() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 text-lg"
+                  className="h-14 text-lg w-full"
                   onClick={() => choose("hi")}
                 >
                   हिन्दी
@@ -69,11 +69,11 @@ export default function LanguageLandingRoot() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-3">
-              <Button asChild>
+            <div className="flex flex-col sm:flex-row gap-3 pt-3">
+              <Button asChild className="w-full sm:w-auto">
                 <a href="/get-involved#donate">Donate</a>
               </Button>
-              <Button asChild variant="outline">
+              <Button asChild variant="outline" className="w-full sm:w-auto">
                 <a href="/get-involved#partner">Partner</a>
               </Button>
             </div>
@@ -120,7 +120,7 @@ export default function LanguageLandingRoot() {
       </main>
 
       {/* Footer strip */}
-      <div className="px-6 pb-8">
+      <div className="px-6 text pb-8">
         <div className="container mx-auto">
           <div className="h-px bg-border" />
           <div className="text-xs text-muted-foreground pt-4">© 2024 Janam</div>

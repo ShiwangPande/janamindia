@@ -130,7 +130,7 @@ export function ContainerWalkthrough() {
             <CardContent>
               <div className="relative">
                 {/* Main Image */}
-                <div className="aspect-video bg-[var(--jn-beige)] rounded-[12px] overflow-hidden relative jn-warm-overlay">
+                <div className="aspect-[4/3] sm:aspect-video bg-[var(--jn-beige)] rounded-[12px] overflow-hidden relative jn-warm-overlay">
                   <img
                     src={currentContainer.image || "/placeholder.svg"}
                     alt={currentContainer.title}

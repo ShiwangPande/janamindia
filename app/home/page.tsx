@@ -9,6 +9,7 @@ import { ProgramSnippets } from "@/components/program-snippets"
 import { InteractiveFeatures } from "@/components/interactive-features"
 import { AIChatbot } from "@/components/ai-chatbot"
 import { SiteHeader } from "@/components/site-header"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -86,48 +87,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[var(--jn-forest)] text-white py-12">
+      {/* Footer (minimal) */}
+      <footer className="bg-[var(--jn-forest)] text-black py-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Heart className="h-6 w-6" />
-                <span className="text-xl font-bold font-[family-name:var(--font-merriweather)]">Janam</span>
-              </div>
-              <p className="text-sm opacity-80">
-                Safe births. Stronger families. Community-driven maternal health across rural India.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Programs</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>Midwifery Training</li>
-                <li>Container Clinics</li>
-                <li>Kangaroo Care</li>
-                <li>Digital Resources</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Get Involved</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>Donate</li>
-                <li>Volunteer</li>
-                <li>Partner</li>
-                <li>Spread Awareness</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>info@janam.org</li>
-                <li>+91 98765 43210</li>
-                <li>Mumbai, Maharashtra</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm opacity-80">
-            <p>&copy; 2024 Janam. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <div className="flex flex-col items-center gap-3 text-center">
+            <div className="flex items-center gap-2">
+         
+          <Image src="/logo.jpg" alt="Janam logo" width={56} height={56} className="rounded-md shadow-sm" />
+          <span className="font-logo text-4xl md:text-6xl leading-none text-primary drop-shadow-sm tracking-tight">Janam</span>
+        </div>
+            <p className="text-sm opacity-90 max-w-xl">
+              Safe births. Stronger families. Community-driven maternal health across rural India.
+            </p>
+            <p className="text-xs opacity-80">© 2024 Janam. All rights reserved.</p>
           </div>
         </div>
       </footer>

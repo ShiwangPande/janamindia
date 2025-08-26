@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Merriweather, Inter } from "next/font/google"
+import localFont from "next/font/local"
 import "./globals.css"
 import { LanguageProvider } from "@/lib/language-context"
 import { ClerkProvider } from "@clerk/nextjs"
@@ -19,6 +20,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+})
+
+const logoFont = localFont({
+  src: "../public/FeelfreePersonalUseRegular-lg2Bw.ttf",
+  display: "swap",
+  variable: "--font-logo",
 })
 
 export const metadata: Metadata = {
@@ -40,14 +47,14 @@ export default function RootLayout({
     clerkPublishableKey ? (
       <ClerkProvider>
         <html lang="en">
-          <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable}`}>
+          <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`}>
             <LanguageProvider>{children}</LanguageProvider>
           </body>
         </html>
       </ClerkProvider>
     ) : (
       <html lang="en">
-        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable}`}>
+        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`}>
           <LanguageProvider>{children}</LanguageProvider>
         </body>
       </html>
