@@ -113,11 +113,11 @@ export function ContainerWalkthrough() {
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Viewer */}
         <div className="lg:col-span-2">
-          <Card>
+          <Card className="bg-[var(--jn-beige)]/70 backdrop-blur border-[var(--jn-cool)]/60">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="font-[family-name:var(--font-space-grotesk)]">
+                  <CardTitle className="font-[family-name:var(--font-merriweather)]">
                     {currentContainer.title}
                   </CardTitle>
                   <CardDescription>{currentContainer.description}</CardDescription>
@@ -130,11 +130,11 @@ export function ContainerWalkthrough() {
             <CardContent>
               <div className="relative">
                 {/* Main Image */}
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
+                <div className="aspect-video bg-[var(--jn-beige)] rounded-[12px] overflow-hidden relative jn-warm-overlay">
                   <img
                     src={currentContainer.image || "/placeholder.svg"}
                     alt={currentContainer.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover jn-image-muted"
                   />
 
                   {/* Hotspots */}
@@ -152,7 +152,7 @@ export function ContainerWalkthrough() {
                     >
                       <div
                         className={`w-6 h-6 rounded-full ${
-                          selectedHotspot === index ? "bg-destructive" : "bg-primary"
+                          selectedHotspot === index ? "bg-[var(--jn-coral)]" : "bg-[var(--jn-cta)]"
                         } shadow-lg flex items-center justify-center`}
                       >
                         <Info className="h-3 w-3 text-white" />

@@ -2,27 +2,32 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Space_Grotesk, DM_Sans } from "next/font/google"
+import { Merriweather, Inter } from "next/font/google"
 import "./globals.css"
 import { LanguageProvider } from "@/lib/language-context"
 import { ClerkProvider } from "@clerk/nextjs"
 
-const spaceGrotesk = Space_Grotesk({
+const merriweather = Merriweather({
   subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-merriweather",
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
   title: "Janam - Safe births. Stronger families.",
   description: "Community-driven midwifery training, container clinics and kangaroo care support across rural India.",
-  generator: "v0.app",
+  icons: {
+    icon: "/logo.jpg",
+  },
+  generator: "Next.js",
 }
 
 export default function RootLayout({
@@ -35,18 +40,14 @@ export default function RootLayout({
     clerkPublishableKey ? (
       <ClerkProvider>
         <html lang="en">
-          <body
-            className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable} ${dmSans.variable}`}
-          >
+          <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable}`}>
             <LanguageProvider>{children}</LanguageProvider>
           </body>
         </html>
       </ClerkProvider>
     ) : (
       <html lang="en">
-        <body
-          className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable} ${dmSans.variable}`}
-        >
+        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable}`}>
           <LanguageProvider>{children}</LanguageProvider>
         </body>
       </html>
