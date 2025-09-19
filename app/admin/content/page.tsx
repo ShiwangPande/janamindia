@@ -14,17 +14,29 @@ export default function ContentManagement() {
   const pages = [
     { id: 1, title: "Homepage", status: "published", lastModified: "2 hours ago", language: "en" },
     { id: 2, title: "होमपेज", status: "published", lastModified: "2 hours ago", language: "hi" },
-    { id: 3, title: "Get Involved", status: "published", lastModified: "1 day ago", language: "en" },
-    { id: 4, title: "शामिल हों", status: "draft", lastModified: "1 day ago", language: "hi" },
-    { id: 5, title: "Impact Dashboard", status: "published", lastModified: "3 days ago", language: "en" },
+    { id: 3, title: "About Us", status: "published", lastModified: "1 day ago", language: "en" },
+    { id: 4, title: "हमारे बारे में", status: "draft", lastModified: "1 day ago", language: "hi" },
+    { id: 5, title: "Team", status: "published", lastModified: "3 days ago", language: "en" },
     { id: 6, title: "Training Program", status: "published", lastModified: "1 week ago", language: "en" },
+    { id: 7, title: "Get Involved", status: "published", lastModified: "2 days ago", language: "en" },
+    { id: 8, title: "Contact Us", status: "published", lastModified: "1 week ago", language: "en" },
+    { id: 9, title: "Media & Updates", status: "published", lastModified: "3 days ago", language: "en" },
+    { id: 10, title: "Fathers for Care", status: "published", lastModified: "4 days ago", language: "en" },
+    { id: 11, title: "The Problem", status: "published", lastModified: "5 days ago", language: "en" },
+    { id: 12, title: "Our Solution", status: "published", lastModified: "6 days ago", language: "en" },
+    { id: 13, title: "Pregnancy Booklet", status: "published", lastModified: "1 week ago", language: "en" },
+    { id: 14, title: "Impact", status: "published", lastModified: "2 days ago", language: "en" },
   ]
 
   const components = [
     { id: 1, name: "Hero Section", type: "hero", usedIn: 4, lastModified: "2 hours ago" },
     { id: 2, name: "Impact Counters", type: "stats", usedIn: 2, lastModified: "1 day ago" },
-    { id: 3, name: "Testimonial Card", type: "testimonial", usedIn: 3, lastModified: "3 days ago" },
-    { id: 4, name: "Donation Form", type: "form", usedIn: 1, lastModified: "1 week ago" },
+    { id: 3, name: "Testimonials", type: "testimonial", usedIn: 3, lastModified: "3 days ago" },
+    { id: 4, name: "Donation Portal", type: "form", usedIn: 1, lastModified: "1 week ago" },
+    { id: 5, name: "Do's & Don'ts", type: "content", usedIn: 2, lastModified: "4 days ago" },
+    { id: 6, name: "Program Snippets", type: "content", usedIn: 3, lastModified: "5 days ago" },
+    { id: 7, name: "AI Chatbot", type: "interactive", usedIn: 1, lastModified: "6 days ago" },
+    { id: 8, name: "Container 3D", type: "interactive", usedIn: 1, lastModified: "1 week ago" },
   ]
 
   const media = [

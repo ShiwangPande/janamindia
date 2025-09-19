@@ -20,7 +20,6 @@ import {
   AreaChart,
 } from "recharts"
 import { Baby, Users, MapPin, Award, TrendingUp, Download } from "lucide-react"
-import { ImpactMap } from "@/components/impact-map"
 import { useLanguage } from "@/lib/language-context"
 
 interface CounterProps {
@@ -270,7 +269,9 @@ export function InteractiveDashboard() {
             <CardDescription>{t("dashboard.geographicReachDesc")}</CardDescription>
           </CardHeader>
           <CardContent>
-            <ImpactMap />
+            <div className="h-64 bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
+              Geographic impact map coming soon
+            </div>
           </CardContent>
         </Card>
       </div>

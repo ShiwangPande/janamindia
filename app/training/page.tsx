@@ -1,46 +1,53 @@
 "use client"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { BookOpen, Users, Award, Calendar, Download, Play, ArrowRight } from "lucide-react"
-import { TrainingOverview } from "@/components/training-overview"
-import { ApplicationForm } from "@/components/application-form"
-import { ResourceHub } from "@/components/resource-hub"
-import { TrainingSchedule } from "@/components/training-schedule"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { BookOpen, Users, Award, Download, Play, CheckCircle2, GraduationCap, Video, ClipboardList, Layout } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { useLanguage } from "@/lib/language-context"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import React from "react"
 
 export default function TrainingPage() {
   const { t } = useLanguage()
-  const [activeTab, setActiveTab] = useState("overview")
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const name = data.get('name') as string
+    const email = data.get('email') as string
+    const phone = data.get('phone') as string
+    const message = data.get('message') as string
+    const subject = encodeURIComponent('Midwifery Training Sign Up')
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`)
+    window.location.href = `mailto:info@janam.org?subject=${subject}&body=${body}`
+  }
+  const [open, setOpen] = React.useState(false)
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-gray-900">
       <SiteHeader />
 
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-background via-muted/30 to-background">
-        <div className="container mx-auto px-4 text-center">
-          <Badge variant="secondary" className="mb-4">{t("training.title")}</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-[family-name:var(--font-space-grotesk)]">
-            {t("training.subtitle")}
+      {/* Hero */}
+      <section className="relative bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30 py-24">
+        <div className="container mx-auto max-w-5xl text-center relative">
+          <Badge variant="secondary" className="mb-3">{t("trainingPage.hero.badge")}</Badge>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-primary">
+            {t("trainingPage.hero.title")}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            {t("training.subtitle")}
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            {t("trainingPage.hero.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              <BookOpen className="mr-2 h-5 w-5" />
-              Apply Now
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <Button size="lg" asChild>
+              <a href="#videos"><Video className="mr-2 h-5 w-5" />{t("trainingPage.hero.videoLibrary")}</a>
             </Button>
-            <Button variant="outline" size="lg">
-              <Play className="mr-2 h-5 w-5" />
-              Watch Training Video
+            <Button variant="outline" size="lg" asChild>
+              <a href="#resources"><Download className="mr-2 h-5 w-5" />{t("trainingPage.hero.illustratedGuide")}</a>
             </Button>
-            <Button variant="outline" size="lg">
-              <Download className="mr-2 h-5 w-5" />
-              Download Brochure
+            <Button variant="secondary" size="lg" asChild>
+              <a href="#signup"><GraduationCap className="mr-2 h-5 w-5" />{t("trainingPage.hero.signUp")}</a>
             </Button>
           </div>
         </div>
@@ -48,98 +55,286 @@ export default function TrainingPage() {
 
       {/* Main Content */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          {/* Mobile: select control */}
-          <div className="md:hidden mb-4">
-            <Select value={activeTab} onValueChange={setActiveTab}>
-              <SelectTrigger className="w-full h-12 text-base rounded-[12px] border bg-white">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="overview">{t("training.overview")}</SelectItem>
-                <SelectItem value="apply">{t("training.apply")}</SelectItem>
-                <SelectItem value="schedule">{t("training.schedule")}</SelectItem>
-                <SelectItem value="resources">{t("training.resources")}</SelectItem>
-              </SelectContent>
-            </Select>
+        <div className="container mx-auto max-w-7xl space-y-20">
+
+          {/* Overview Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Card className="shadow-sm">
+              <CardHeader className="text-center">
+                <BookOpen className="h-12 w-12 text-primary mx-auto mb-2" />
+                <CardTitle className="text-xl">{t("trainingPage.features.programtitle")}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-base text-gray-600">
+                {t("trainingPage.features.programtext")}
+                  
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-sm">
+              <CardHeader className="text-center">
+                <Users className="h-12 w-12 text-primary mx-auto mb-2" />
+                <CardTitle className="text-xl">{t("trainingPage.features.paternshiptitle")}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-base text-gray-600">
+                {t("trainingPage.features.paternshiptext")}  
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-sm">
+              <CardHeader className="text-center">
+                <Award className="h-12 w-12 text-primary mx-auto mb-2" />
+                <CardTitle className="text-xl">{t("trainingPage.features.deliverytitle")}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-base text-gray-600">
+                {t("trainingPage.features.deliverytext")}  
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-7xl mx-auto">
-            <TabsList className="mb-8 hidden h-12  md:grid md:grid-cols-4">
-              <TabsTrigger
-                value="overview"
-                className="flex items-center space-x-2 font-semibold rounded-md transition-colors data-[state=active]:bg-[#2E7D32] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#2E7D32] shadow-sm border border-[#2E7D32]/20 py-3"
-              >
-                <BookOpen className="h-4 w-4" />
-                <span>{t("training.overview")}</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="apply"
-                className="flex items-center space-x-2 font-semibold rounded-md transition-colors data-[state=active]:bg-[#2E7D32] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#2E7D32] shadow-sm border border-[#2E7D32]/20 py-3"
-              >
-                <Users className="h-4 w-4" />
-                <span>{t("training.apply")}</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="schedule"
-                className="flex items-center space-x-2 font-semibold rounded-md transition-colors data-[state=active]:bg-[#2E7D32] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#2E7D32] shadow-sm border border-[#2E7D32]/20 py-3"
-              >
-                <Calendar className="h-4 w-4" />
-                <span>{t("training.schedule")}</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="resources"
-                className="flex items-center space-x-2 font-semibold rounded-md transition-colors data-[state=active]:bg-[#2E7D32] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#2E7D32] shadow-sm border border-[#2E7D32]/20 py-3"
-              >
-                <Award className="h-4 w-4" />
-                <span>{t("training.resources")}</span>
-              </TabsTrigger>
-            </TabsList>
+        {/* Curriculum */}
+<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+      {t("trainingPage.curriculum.title")}
+    </h2>
+    <p className="text-base text-gray-600">
+      {t("trainingPage.curriculum.subtitle")}
+    </p>
+  </div>
+  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
+    {(t("trainingPage.curriculum.modules") as unknown as string[]).map((item: string, i: number) => (
+      <div
+        key={i}
+        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+      >
+        <CheckCircle2 className="w-5 h-5 text-primary mt-1" />
+        <span className="text-base text-gray-700">{item}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
-            <TabsContent value="overview">
-              <TrainingOverview />
-            </TabsContent>
+{/* Delivery Model */}
+<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+      {t("trainingPage.delivery.title")}
+    </h2>
+    <p className="text-base text-gray-600">
+      {t("trainingPage.delivery.subtitle")}
+    </p>
+  </div>
+  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
+    {(t("trainingPage.delivery.methods") as unknown as string[]).map((item: string, i: number) => (
+      <div
+        key={i}
+        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+      >
+        <Layout className="w-5 h-5 text-primary mt-1" />
+        <span className="text-base text-gray-700">{item}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
-            <TabsContent value="apply">
-              <ApplicationForm />
-            </TabsContent>
+{/* Video Library */}
+<div id="videos" className="py-16 border-b">
+  <h2 className="text-3xl font-bold text-primary mb-6 text-center font-[family-name:var(--font-merriweather)]">
+    Video Library
+  </h2>
+  <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    {["Basics of Safe Delivery", "Kangaroo Care", "Emergency Signs"].map(
+      (title, i) => (
+        <Card
+          key={i}
+          className="overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition"
+        >
+          <div className="aspect-video bg-gray-100 flex items-center justify-center text-gray-500">
+            Video placeholder
+          </div>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Play className="w-5 h-5 text-primary" />
+              {title}
+            </CardTitle>
+          </CardHeader>
+        </Card>
+      )
+    )}
+  </div>
+</div>
 
-            <TabsContent value="schedule">
-              <TrainingSchedule />
-            </TabsContent>
+{/* Outcomes & Follow-ups */}
+<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+      {t("trainingPage.support.title")}
+    </h2>
+    <p className="text-base text-gray-600">
+      {t("trainingPage.support.subtitle")}
+    </p>
+  </div>
+  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
+    {(t("trainingPage.support.support") as unknown as string[]).map((item: string, i: number) => (
+      <div
+        key={i}
+        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+      >
+        <ClipboardList className="w-5 h-5 text-primary mt-1" />
+        <span className="text-base text-gray-700">{item}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
-            <TabsContent value="resources">
-              <ResourceHub />
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
+{/* FAQ */}
+<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+    {t("trainingPage.faq.title")} 
+    </h2>
+    <p className="text-base text-gray-600"> {t("trainingPage.faq.subtitle")} </p>
+  </div>
+  <div className="md:col-span-2 grid gap-5">
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">{t("trainingPage.faq.cardtitle1")} </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content1")}  
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle2")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content2")}   
+      </CardContent>
+    </Card>
+  </div>
+</div>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
-            Ready to Save Lives?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join our next training batch and become a certified community midwife. Transform your community's maternal
-            health outcomes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Apply for Training
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
-            >
-              Contact Training Team
+{/* Resources */}
+<div id="resources" className="grid md:grid-cols-3 gap-8 py-16 border-b">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+    {t("trainingPage.resources.title")}   
+    </h2>
+    <p className="text-base text-gray-600">
+    {t("trainingPage.resources.subtitle")}
+    </p>
+  </div>
+  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
+    <button
+      className="p-5 rounded-2xl border bg-white hover:bg-gray-50 shadow-sm transition"
+      onClick={() => setOpen(true)}
+    >
+      {t("trainingPage.resources.guide")}
+    </button>
+    <Dialog open={open} onOpenChange={setOpen}>
+                <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
+                  <DialogHeader>
+                    <DialogTitle> {t("trainingPage.resources.guide")}</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex-1 overflow-hidden">
+                    <iframe
+                      src="/janam.pdf"
+                      className="w-full h-full rounded-lg border"
+                      title="Pregnancy Booklet"
+                    />
+                  </div>
+                  <div className="mt-4 flex justify-end">
+                    <Button asChild>
+                      <a href="/janam.pdf" download>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download PDF
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
+    {t("trainingPage.resources.illustrated")}
+    </div>
+    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
+    {t("trainingPage.resources.facilitator")}
+    </div>
+    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
+    {t("trainingPage.resources.quizzes")}
+    </div>
+    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
+    {t("trainingPage.resources.supervisor")}
+    </div>
+  </div>
+</div>
+
+{/* Sign up form */}
+<div id="signup" className="grid md:grid-cols-3 gap-8 py-16">
+  <div className="md:col-span-1">
+    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+       {t("trainingPage.signup.title")}
+    </h2>
+    <p className="text-base text-gray-600">
+    {t("trainingPage.signup.subtitle")} 
+    </p>
+  </div>
+  <div className="md:col-span-2">
+    <Card className="rounded-2xl shadow-sm">
+      <CardContent className="p-8">
+        <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-6">
+          <div>
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" name="name" required placeholder={t("trainingPage.signup.name")} />
+          </div>
+          <div>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder={t("trainingPage.signup.email")}
+            />
+          </div>
+          <div>
+            <Label htmlFor="phone">Phone</Label>
+            <Input
+              id="phone"
+              name="phone"
+              required
+              placeholder={t("trainingPage.signup.phone")}
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder={t("trainingPage.signup.message")}
+              rows={4}
+            />
+          </div>
+          <div className="sm:col-span-2">
+            <Button type="submit" className="w-full">
+{t("trainingPage.signup.submit")}
             </Button>
           </div>
-        </div>
+        </form>
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
+</div>
       </section>
+      {/* End */}
     </div>
   )
 }

@@ -60,4 +60,3 @@ export async function GET() {
   const donations = await prisma.donation.findMany({ orderBy: { createdAt: "desc" } })
   return NextResponse.json({ success: true, donations })
 }
-

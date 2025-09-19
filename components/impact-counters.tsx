@@ -47,31 +47,24 @@ export function ImpactCounters() {
   const stats = [
     {
       icon: Baby,
-      value: 12500,
-      suffix: "+",
-      label: t("impact.safeDeliveries"),
-      description: "Mothers and babies helped",
+      value: 720, // 20 minutes = 720 deaths per day
+      suffix: "",
+      label: language === "hi" ? "दैनिक मातृ मृत्यु" : "Daily Maternal Deaths",
+      description: language === "hi" ? "भारत में हर 20 मिनट में" : "Every 20 minutes in India",
     },
     {
       icon: Users,
-      value: 450,
-      suffix: "+",
-      label: t("impact.midwivesTrained"),
-      description: "Active in communities",
+      value: 60,
+      suffix: "%",
+      label: language === "hi" ? "ग्रामीण महिलाएं" : "Rural Women",
+      description: language === "hi" ? "10 किमी के भीतर स्वास्थ्य सेवा नहीं" : "Lack healthcare within 10km",
     },
     {
       icon: Award,
-      value: 25,
-      suffix: "",
-      label: language === "hi" ? "कंटेनर क्लिनिक" : "Container Clinics",
-      description: language === "hi" ? "क्षेत्रों में स्थापित" : "Deployed across regions",
-    },
-    {
-      icon: MapPin,
-      value: 150,
-      suffix: "+",
-      label: t("impact.communitiesServed"),
-      description: "Across 8 states",
+      value: 2000,
+      suffix: "$",
+      label: language === "hi" ? "कंटेनर क्लिनिक की लागत" : "Container Clinic Cost",
+      description: language === "hi" ? "पूरी तरह सुसज्जित मोबाइल क्लिनिक" : "Fully equipped mobile clinic",
     },
   ]
 
@@ -89,7 +82,7 @@ export function ImpactCounters() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">

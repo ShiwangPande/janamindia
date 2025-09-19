@@ -20,10 +20,12 @@ export function HeroSection() {
             </Badge>
 
             <h1 className="text-4xl md:text-6xl font-bold leading-tight font-[family-name:var(--font-merriweather)] animate-fade-up">
-              {t("hero.title")}
+              {language === "hi" ? "मातृ एवं नवजात स्वास्थ्य देखभाल को नया रूप" : "Redefining Maternal & Neonatal Healthcare"}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-up" style={{animationDelay: "80ms"}}>
-              {t("hero.subtitle")}
+              {language === "hi" 
+                ? "ग्रामीण महिलाओं के लिए मोबाइल प्रसव क्लिनिक और दाई प्रशिक्षण के माध्यम से सुरक्षित, सम्मानजनक और सुलभ प्रसव सुनिश्चित करना।"
+                : "Providing safe, dignified, and accessible childbirth for rural women through mobile birthing clinics and midwifery training."}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{animationDelay: "120ms"}}>
@@ -38,9 +40,14 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <p className="text-sm text-muted-foreground">
-              {language === "hi" ? "₹500 = एक सुरक्षित प्रसव" : "₹500 enables one safe delivery"}
-            </p>
+            <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
+              <p className="text-sm font-semibold text-destructive mb-1">
+                {language === "hi" ? "भारत में हर 20 मिनट में एक महिला गर्भावस्था संबंधी जटिलताओं से मरती है" : "Every 20 minutes, a woman dies from pregnancy-related complications in India"}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {language === "hi" ? "ये मौतें रोकी जा सकती हैं" : "These deaths are preventable"}
+              </p>
+            </div>
           </div>
 
           {/* Hero Image */}

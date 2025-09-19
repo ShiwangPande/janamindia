@@ -98,29 +98,29 @@ export function ContainerWalkthrough() {
   const currentContainer = containerViews[currentView]
 
   return (
-    <div className="space-y-8">
+  <div className="space-y-10">
       <div className="text-center">
-        <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-space-grotesk)]">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3 font-[family-name:var(--font-space-grotesk)] tracking-tight">
           {language === "hi" ? "कंटेनर क्लिनिक वॉकथ्रू" : "Container Clinic Walkthrough"}
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
           {language === "hi"
             ? "हमारे नवाचार मोबाइल स्वास्थ्य समाधान का अन्वेषण करें जो पेशेवर चिकित्सा देखभाल सीधे दूरस्थ गांवों तक पहुँचाता है।"
             : "Explore our innovative mobile healthcare solution bringing professional medical care directly to remote villages across India."}
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-8 items-start">
         {/* Main Viewer */}
         <div className="lg:col-span-2">
-          <Card className="bg-[var(--jn-beige)]/70 backdrop-blur border-[var(--jn-cool)]/60">
+          <Card className="rounded-2xl shadow-sm border">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="font-[family-name:var(--font-merriweather)]">
+                  <CardTitle className="font-[family-name:var(--font-merriweather)] text-xl md:text-2xl">
                     {currentContainer.title}
                   </CardTitle>
-                  <CardDescription>{currentContainer.description}</CardDescription>
+                  <CardDescription className="text-sm md:text-base">{currentContainer.description}</CardDescription>
                 </div>
                 <Badge variant="secondary">
                   {currentView + 1} {language === "hi" ? "में से" : "of"} {containerViews.length}
@@ -130,67 +130,65 @@ export function ContainerWalkthrough() {
             <CardContent>
               <div className="relative">
                 {/* Main Image */}
-                <div className="aspect-[4/3] sm:aspect-video bg-[var(--jn-beige)] rounded-[12px] overflow-hidden relative jn-warm-overlay">
+                <div className="aspect-[4/3] sm:aspect-video bg-muted rounded-2xl overflow-hidden relative">
                   <img
                     src={currentContainer.image || "/placeholder.svg"}
                     alt={currentContainer.title}
-                    className="w-full h-full object-cover jn-image-muted"
+                    className="w-full h-full object-cover"
                   />
 
                   {/* Hotspots */}
                   {currentContainer.hotspots.map((hotspot, index) => (
-                    <div
+                    <button
                       key={index}
-                      className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all ${
-                        selectedHotspot === index ? "scale-125" : "hover:scale-110"
-                      }`}
+                      type="button"
+                      aria-label={hotspot.title}
+                      className={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform ${
+                        selectedHotspot === index ? "scale-110" : "hover:scale-105"
+                      } focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-full`}
                       style={{
                         left: `${hotspot.x}%`,
                         top: `${hotspot.y}%`,
                       }}
                       onClick={() => setSelectedHotspot(selectedHotspot === index ? null : index)}
                     >
-                      <div
-                        className={`w-6 h-6 rounded-full ${
-                          selectedHotspot === index ? "bg-[var(--jn-coral)]" : "bg-[var(--jn-cta)]"
-                        } shadow-lg flex items-center justify-center`}
-                      >
-                        <Info className="h-3 w-3 text-white" />
-                        <div className="absolute -inset-2 rounded-full bg-current opacity-20 animate-pulse"></div>
+                      <div className={`w-7 h-7 rounded-full ${selectedHotspot === index ? "bg-primary" : "bg-primary/80"} shadow-lg flex items-center justify-center relative`}>
+                        <Info className="h-3.5 w-3.5 text-white" />
+                        <span className="absolute -inset-1.5 rounded-full bg-primary/20 animate-pulse" />
                       </div>
-                    </div>
+                    </button>
                   ))}
 
                   {/* Navigation Controls */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
-                    <Button variant="secondary" size="sm" onClick={prevView}>
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-white/70 backdrop-blur px-2 py-1 rounded-full shadow-sm">
+                    <Button variant="secondary" size="icon" className="h-8 w-8" onClick={prevView} aria-label="Previous view">
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
-                    <div className="flex space-x-1">
+                    <div className="flex space-x-1 px-1">
                       {containerViews.map((_, index) => (
                         <div
                           key={index}
-                          className={`w-2 h-2 rounded-full ${index === currentView ? "bg-primary" : "bg-white/50"}`}
+                          className={`w-2.5 h-2.5 rounded-full ${index === currentView ? "bg-primary" : "bg-muted-foreground/30"}`}
                         />
                       ))}
                     </div>
-                    <Button variant="secondary" size="sm" onClick={nextView}>
+                    <Button variant="secondary" size="icon" className="h-8 w-8" onClick={nextView} aria-label="Next view">
                       <ChevronRight className="h-4 w-4" />
                     </Button>
                   </div>
 
                   {/* Fullscreen Button */}
-                  <Button variant="secondary" size="sm" className="absolute top-4 right-4">
+                  <Button variant="secondary" size="icon" className="absolute top-4 right-4 h-8 w-8" aria-label="Fullscreen">
                     <Maximize2 className="h-4 w-4" />
                   </Button>
                 </div>
 
                 {/* Hotspot Details */}
                 {selectedHotspot !== null && (
-                  <Card className="mt-4 border-primary/20 bg-primary/5">
+                  <Card className="mt-4 border-primary/20 bg-primary/5 rounded-xl">
                     <CardContent className="pt-4">
-                      <h4 className="font-semibold mb-2">{currentContainer.hotspots[selectedHotspot].title}</h4>
-                      <p className="text-sm text-muted-foreground">
+                      <h4 className="font-semibold mb-1 text-foreground">{currentContainer.hotspots[selectedHotspot].title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {currentContainer.hotspots[selectedHotspot].description}
                       </p>
                     </CardContent>
@@ -204,7 +202,7 @@ export function ContainerWalkthrough() {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* View Navigation */}
-          <Card>
+          <Card className="rounded-2xl shadow-sm">
             <CardHeader>
               <CardTitle className="text-lg">{language === "hi" ? "कंटेनर क्षेत्र" : "Container Areas"}</CardTitle>
             </CardHeader>
@@ -226,7 +224,7 @@ export function ContainerWalkthrough() {
           </Card>
 
           {/* Specifications */}
-          <Card>
+          <Card className="rounded-2xl shadow-sm">
             <CardHeader>
               <CardTitle className="text-lg">{language === "hi" ? "विनिर्देश" : "Specifications"}</CardTitle>
             </CardHeader>
@@ -246,51 +244,78 @@ export function ContainerWalkthrough() {
           </Card>
 
           {/* Actions */}
-          <Card>
+          <Card className="rounded-2xl shadow-sm">
             <CardHeader>
               <CardTitle className="text-lg">{language === "hi" ? "और जानें" : "Learn More"}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button className="w-full bg-transparent" variant="outline">
-                <Play className="h-4 w-4 mr-2" />
-                {language === "hi" ? "वीडियो टूर देखें" : "Watch Video Tour"}
-              </Button>
-              <Button className="w-full bg-transparent" variant="outline">
+              <Button
+                className="w-full bg-transparent"
+                variant="outline"
+                onClick={() => window.location.href = "/contact"}
+              >
                 {language === "hi" ? "गाइडेड टूर का अनुरोध करें" : "Request Guided Tour"}
               </Button>
-              <Button className="w-full bg-primary hover:bg-primary/90">{language === "hi" ? "एक कंटेनर को फंड करें" : "Fund a Container"}</Button>
+              <Button
+                className="w-full bg-primary hover:bg-primary/90"
+                onClick={() => window.location.href = "/get-involved#donate"}
+              >
+                {language === "hi" ? "एक कंटेनर को फंड करें" : "Fund a Container"}
+              </Button>
             </CardContent>
           </Card>
         </div>
       </div>
 
       {/* Impact Stats */}
-      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-        <CardContent className="pt-6">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold font-[family-name:var(--font-space-grotesk)]">Container Clinic Impact</h3>
-            <p className="text-muted-foreground">Real results from our mobile healthcare units</p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">25</div>
-              <p className="text-sm text-muted-foreground">Active Containers</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">12,500+</div>
-              <p className="text-sm text-muted-foreground">Safe Deliveries</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">150+</div>
-              <p className="text-sm text-muted-foreground">Villages Served</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-primary mb-1">98%</div>
-              <p className="text-sm text-muted-foreground">Success Rate</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Impact Stats */}
+<Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20 rounded-2xl">
+  <CardContent className="pt-6">
+    <div className="text-center mb-6">
+      <h3 className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)]">
+        {language === "hi" ? "कंटेनर क्लिनिक प्रभाव" : "Container Clinic Impact"}
+      </h3>
+      <p className="text-muted-foreground">
+        {language === "hi"
+          ? "हमारी मोबाइल स्वास्थ्य इकाइयों से वास्तविक परिणाम"
+          : "Real results from our mobile healthcare units"}
+      </p>
+    </div>
+    <div className="grid md:grid-cols-5 gap-6 text-center">
+      <div>
+        <div className="text-2xl font-bold text-primary mb-1">3</div>
+        <p className="text-sm text-muted-foreground">
+          {language === "hi" ? "सक्रिय कंटेनर" : "Active Containers"}
+        </p>
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-primary mb-1">4</div>
+        <p className="text-sm text-muted-foreground">
+          {language === "hi" ? "सुरक्षित प्रसव" : "Safe Deliveries"}
+        </p>
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-primary mb-1">50+</div>
+        <p className="text-sm text-muted-foreground">
+          {language === "hi" ? "जाँच के लिए आई महिलाएँ" : "Women that came for check ups"}
+        </p>
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-primary mb-1">10+</div>
+        <p className="text-sm text-muted-foreground">
+          {language === "hi" ? "सेवा प्राप्त गाँव" : "Villages Served"}
+        </p>
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-primary mb-1">98%</div>
+        <p className="text-sm text-muted-foreground">
+          {language === "hi" ? "सफलता दर" : "Success Rate"}
+        </p>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
     </div>
   )
 }

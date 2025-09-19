@@ -233,7 +233,7 @@ export function TestimonialsSection() {
       </div>
 
       {/* Video Testimonials Section */}
-      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+      {/* <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
         <CardHeader className="text-center">
           <CardTitle className="font-[family-name:var(--font-space-grotesk)]">Watch Their Stories</CardTitle>
           <CardDescription>Hear directly from the mothers, midwives, and families we serve</CardDescription>
@@ -259,7 +259,7 @@ export function TestimonialsSection() {
             ))}
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   )
 }

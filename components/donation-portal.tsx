@@ -27,12 +27,6 @@ export function DonationPortal() {
       amount: 500,
       impact: "Safe delivery kit for 1 mother",
       icon: Baby,
-      popular: false,
-    },
-    {
-      amount: 2500,
-      impact: "Complete prenatal care for 1 mother",
-      icon: Heart,
       popular: true,
     },
     {
@@ -43,7 +37,7 @@ export function DonationPortal() {
     },
     {
       amount: 50000,
-      impact: "Part-fund a container clinic",
+      impact: "Part‑fund a mobile container clinic",
       icon: Building2,
       popular: false,
     },
@@ -240,16 +234,16 @@ export function DonationPortal() {
                         <span>{language === "hi" ? `${Math.floor(finalAmount / 500)} सुरक्षित डिलीवरी किट` : `${Math.floor(finalAmount / 500)} safe delivery kit(s)`}</span>
                       </div>
                     )}
-                    {finalAmount >= 2500 && (
-                      <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-primary" />
-                        <span>{language === "hi" ? `${Math.floor(finalAmount / 2500)} संपूर्ण प्रसवपूर्व देखभाल पैकेज` : `${Math.floor(finalAmount / 2500)} complete prenatal care package(s)`}</span>
-                      </div>
-                    )}
                     {finalAmount >= 5000 && (
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-primary" />
-                        <span>{language === "hi" ? `${Math.floor(finalAmount / 500)} दाइयों के लिए प्रशिक्षण` : `Training for ${Math.floor(finalAmount / 500)} midwives`}</span>
+                        <span>{language === "hi" ? `${Math.floor(finalAmount / 5000) * 10} दाइयों के लिए प्रशिक्षण` : `Training for ${Math.floor(finalAmount / 5000) * 10} midwives`}</span>
+                      </div>
+                    )}
+                    {finalAmount >= 50000 && (
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-primary" />
+                        <span>{language === "hi" ? `${Math.floor(finalAmount / 50000)} कंटेनर के लिए आंशिक फंड` : `${Math.floor(finalAmount / 50000)}x part‑funding toward a container`}</span>
                       </div>
                     )}
                   </div>

@@ -15,17 +15,16 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const navLinks = [
     { href: "/home", label: t("nav.home") },
-    { href: "/impact", label: t("nav.impact") },
     { href: "/training", label: t("nav.training") },
-    { href: "/about", label: t("nav.about") },
     { href: "/get-involved", label: t("nav.getInvolved") },
+    { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
   ]
   return (
     <header className="border-b bg-white/80  backdrop-blur-xl supports-[backdrop-filter]:bg-white/60 shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Image src="/logo.jpg" alt="Janam logo" width={56} height={56} className="rounded-md shadow-sm" />
+          <Image src="/logo.png" alt="Janam logo" width={56} height={56} className="rounded-md shadow-sm" />
           <span className="font-logo text-4xl md:text-6xl leading-none text-primary drop-shadow-sm tracking-tight">Janam</span>
         </div>
         {/* Desktop Nav */}
@@ -77,7 +76,7 @@ export function SiteHeader() {
               <div className="px-6 pt-6">
                 <SheetHeader className="flex flex-row items-center justify-between">
                   <SheetTitle className="flex items-center gap-2">
-                    <Image src="/logo.jpg" alt="Janam logo" width={56} height={56} className="rounded" />
+                    <Image src="/logo.png" alt="Janam logo" width={56} height={56} className="rounded" />
                     <span className="font-logo text-4xl md:text-6xl leading-none text-primary tracking-tight">Janam</span>
                   </SheetTitle>
                   <SheetClose asChild>

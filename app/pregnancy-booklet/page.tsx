@@ -34,9 +34,9 @@ export default function PregnancyBookletPage() {
             </CardFooter>
           </Card>
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-primary">Whats inside</h3>
+            <h3 className="text-2xl font-semibold text-primary">What's inside</h3>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Dos and Donts for pregnancy</li>
+              <li>Do's and Don'ts for pregnancy</li>
               <li>Kangaroo care step-by-step</li>
               <li>Danger signs and when to seek care</li>
               <li>Breastfeeding and postnatal care</li>

@@ -30,6 +30,15 @@ export default function MediaPage() {
           ))}
         </div>
       </section>
+
+      {/* Short video */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="aspect-video w-full rounded-xl overflow-hidden border bg-black/5 flex items-center justify-center text-muted-foreground">
+            Our work video placeholder
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

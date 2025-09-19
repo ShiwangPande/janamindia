@@ -1,79 +1,79 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match Janam's maternal health brand palette */
-  --background: oklch(0.97 0.02 85); /* Soft Beige #FFF3E6 */
-  --foreground: oklch(0.35 0 0); /* Charcoal Gray #424242 */
-  --card: oklch(1 0 0); /* White card */
-  --card-foreground: oklch(0.25 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0 0);
-  --primary: oklch(0.45 0.15 142); /* Primary Green #2E7D32 */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.85 0.08 25); /* Coral Peach #FFB5A7 */
-  --secondary-foreground: oklch(0.25 0 0);
-  --muted: oklch(0.97 0.02 85); /* Soft Beige #FFF3E6 */
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.85 0.08 25); /* Coral Peach accent */
-  --accent-foreground: oklch(0.25 0 0);
-  --destructive: oklch(0.35 0.15 15); /* Deep Maroon #7A2E2E for CTAs */
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0 0);
-  --input: oklch(1 0 0);
-  --ring: oklch(0.45 0.15 142 / 0.5); /* Primary green with opacity */
-  --chart-1: oklch(0.45 0.15 142); /* Primary Green */
-  --chart-2: oklch(0.85 0.08 25); /* Coral Peach */
-  --chart-3: oklch(0.35 0.2 135); /* Forest Green #1B5E20 */
-  --chart-4: oklch(0.75 0.1 140); /* Mint Green #A5D6A7 */
-  --chart-5: oklch(0.98 0.02 45); /* Soft Beige */
+  /* Janam palette (HEX exact) */
+  --background: #FFF3E6; /* Soft Beige */
+  --foreground: #424242; /* Charcoal Gray */
+  --card: #FFFFFF;
+  --card-foreground: #424242;
+  --popover: #FFFFFF;
+  --popover-foreground: #424242;
+  --primary: #2E7D32; /* Emerald Green */
+  --primary-foreground: #FFFFFF;
+  --secondary: #A5D6A7; /* Mint Green */
+  --secondary-foreground: #1B5E20; /* Forest Green */
+  --muted: #FFF3E6;
+  --muted-foreground: #424242;
+  --accent: #FFB5A7; /* Coral Peach */
+  --accent-foreground: #1B5E20;
+  --destructive: #7A2E2E; /* Deep Maroon */
+  --destructive-foreground: #FFFFFF;
+  --border: #BDBDBD; /* Cool Gray */
+  --input: #FFFFFF;
+  --ring: #2E7D32;
+  --chart-1: #2E7D32;
+  --chart-2: #FFB5A7;
+  --chart-3: #1B5E20;
+  --chart-4: #A5D6A7;
+  --chart-5: #FFF3E6;
   --radius: 0.5rem;
-  --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.25 0 0);
-  --sidebar-primary: oklch(0.45 0.15 142);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.85 0.08 25);
-  --sidebar-accent-foreground: oklch(0.25 0 0);
-  --sidebar-border: oklch(0.92 0 0);
-  --sidebar-ring: oklch(0.45 0.15 142 / 0.3);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #424242;
+  --sidebar-primary: #2E7D32;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFB5A7;
+  --sidebar-accent-foreground: #1B5E20;
+  --sidebar-border: #BDBDBD;
+  --sidebar-ring: #2E7D32;
 }
 
 .dark {
-  /* Updated dark mode tokens to maintain brand consistency */
-  --background: oklch(0.15 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.55 0.15 142); /* Lighter green for dark mode */
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.75 0.08 25); /* Adjusted coral for dark mode */
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.75 0.08 25);
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.45 0.15 15);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.22 0 0);
-  --input: oklch(0.22 0 0);
-  --ring: oklch(0.55 0.15 142 / 0.5);
-  --chart-1: oklch(0.55 0.15 142);
-  --chart-2: oklch(0.75 0.08 25);
-  --chart-3: oklch(0.45 0.2 135);
-  --chart-4: oklch(0.65 0.1 140);
-  --chart-5: oklch(0.25 0.02 45);
-  --sidebar: oklch(0.18 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.55 0.15 142);
-  --sidebar-primary-foreground: oklch(0.15 0 0);
-  --sidebar-accent: oklch(0.75 0.08 25);
-  --sidebar-accent-foreground: oklch(0.15 0 0);
-  --sidebar-border: oklch(0.22 0 0);
-  --sidebar-ring: oklch(0.55 0.15 142 / 0.3);
+  /* Brand-consistent dark mode */
+  --background: #1B5E20;
+  --foreground: #FFFFFF;
+  --card: #2E7D32;
+  --card-foreground: #FFFFFF;
+  --popover: #2E7D32;
+  --popover-foreground: #FFFFFF;
+  --primary: #A5D6A7;
+  --primary-foreground: #1B5E20;
+  --secondary: #FFB5A7;
+  --secondary-foreground: #1B5E20;
+  --muted: #1B5E20;
+  --muted-foreground: #A5D6A7;
+  --accent: #FFB5A7;
+  --accent-foreground: #1B5E20;
+  --destructive: #7A2E2E;
+  --destructive-foreground: #FFFFFF;
+  --border: #2E7D32;
+  --input: #2E7D32;
+  --ring: #A5D6A7;
+  --chart-1: #A5D6A7;
+  --chart-2: #FFB5A7;
+  --chart-3: #2E7D32;
+  --chart-4: #FFFFFF;
+  --chart-5: #1B5E20;
+  --sidebar: #1B5E20;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #A5D6A7;
+  --sidebar-primary-foreground: #1B5E20;
+  --sidebar-accent: #FFB5A7;
+  --sidebar-accent-foreground: #1B5E20;
+  --sidebar-border: #2E7D32;
+  --sidebar-ring: #A5D6A7;
 }
 
 @theme inline {
@@ -137,5 +137,8 @@
 
 /* Utility to use the logo font variable or fallback */
 .font-logo {
-  font-family: var(--font-logo), "LogoFont", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
