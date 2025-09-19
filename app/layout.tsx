@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Merriweather, Inter } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
+import ChatBot from "@/components/ChatBot"
 import { LanguageProvider } from "@/lib/language-context"
 import { ClerkProvider } from "@clerk/nextjs"
 import { ScrollToTop } from "@/components/scroll-to-top"
@@ -51,6 +52,7 @@ export default function RootLayout({
           <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`} style={{ scrollBehavior: "smooth" }}>
             <LanguageProvider>
               {children}
+              <ChatBot  />
               <ScrollToTop />
             </LanguageProvider>
           </body>
@@ -61,6 +63,7 @@ export default function RootLayout({
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`} style={{ scrollBehavior: "smooth" }}>
           <LanguageProvider>
             {children}
+            <ChatBot  />
             <ScrollToTop />
           </LanguageProvider>
         </body>

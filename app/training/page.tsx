@@ -1,4 +1,6 @@
 "use client"
+import React, { useState } from 'react';
+
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,7 +11,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import React from "react"
 
 export default function TrainingPage() {
   const { t } = useLanguage()
@@ -25,6 +26,60 @@ export default function TrainingPage() {
     window.location.href = `mailto:info@janam.org?subject=${subject}&body=${body}`
   }
   const [open, setOpen] = React.useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Mock t
+  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success' as any);
+        // Clear the form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error' as any);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isFormValid = formData.name && formData.email && formData.phone;
+
   return (
     <div className="min-h-screen bg-background text-gray-900">
       <SiteHeader />
@@ -141,32 +196,36 @@ export default function TrainingPage() {
   </div>
 </div>
 
-{/* Video Library */}
 <div id="videos" className="py-16 border-b">
   <h2 className="text-3xl font-bold text-primary mb-6 text-center font-[family-name:var(--font-merriweather)]">
     Video Library
   </h2>
-  <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    {["Basics of Safe Delivery", "Kangaroo Care", "Emergency Signs"].map(
-      (title, i) => (
-        <Card
-          key={i}
-          className="overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition"
-        >
-          <div className="aspect-video bg-gray-100 flex items-center justify-center text-gray-500">
-            Video placeholder
-          </div>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <Play className="w-5 h-5 text-primary" />
-              {title}
-            </CardTitle>
-          </CardHeader>
-        </Card>
-      )
-    )}
+  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    {[
+      { src: "https://www.youtube-nocookie.com/embed/d3KAGsU3RqA?rel=0&modestbranding=1&controls=1&showinfo=0" },
+      { src: "https://www.youtube-nocookie.com/embed/F_dkUmR9-tU?rel=0&modestbranding=1&controls=1&showinfo=0" },
+      { src: "https://www.youtube-nocookie.com/embed/mfUfVLlnCC8?rel=0&modestbranding=1&controls=1&showinfo=0" },
+      { src: "https://www.youtube-nocookie.com/embed/j1-eG0nUBMI?rel=0&modestbranding=1&controls=1&showinfo=0" },
+    ].map((video, i) => (
+      <Card
+        key={i}
+        className="overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition"
+      >
+        <div className="aspect-video bg-gray-100 flex items-center justify-center text-gray-500">
+          <iframe
+            src={video.src}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-xl"
+          />
+        </div>
+      </Card>
+    ))}
   </div>
 </div>
+
+
 
 {/* Outcomes & Follow-ups */}
 <div className="grid md:grid-cols-3 gap-8 py-16 border-b">
@@ -218,6 +277,136 @@ export default function TrainingPage() {
       {t("trainingPage.faq.content2")}   
       </CardContent>
     </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle3")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content3")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle4")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content4")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle5")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content5")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle6")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content6")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle7")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content7")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle8")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content8")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle9")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content9")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle10")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content10")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle11")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content11")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle12")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content12")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle13")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content13")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle14")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content14")}   
+      </CardContent>
+    </Card>
+    <Card className="shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold">
+        {t("trainingPage.faq.cardtitle15")}  
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="text-base text-gray-600">
+      {t("trainingPage.faq.content15")}   
+      </CardContent>
+    </Card>
   </div>
 </div>
 
@@ -231,47 +420,24 @@ export default function TrainingPage() {
     {t("trainingPage.resources.subtitle")}
     </p>
   </div>
-  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
-    <button
-      className="p-5 rounded-2xl border bg-white hover:bg-gray-50 shadow-sm transition"
-      onClick={() => setOpen(true)}
-    >
-      {t("trainingPage.resources.guide")}
-    </button>
-    <Dialog open={open} onOpenChange={setOpen}>
-                <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
-                  <DialogHeader>
-                    <DialogTitle> {t("trainingPage.resources.guide")}</DialogTitle>
-                  </DialogHeader>
-                  <div className="flex-1 overflow-hidden">
-                    <iframe
-                      src="/janam.pdf"
-                      className="w-full h-full rounded-lg border"
-                      title="Pregnancy Booklet"
-                    />
+  <div className="md:col-span-2">
+  <Card>
+                <CardContent className="p-3 md:p-7">
+                  <div className="w-full">
+                    <div className="relative" style={{ paddingTop: "56.25%" }}>
+                      <iframe
+                        src="https://www.flipbookpdf.net/web/site/a91af593e66c4fca28ebbcd0edaa10d91b3dfa0b202509.pdf.html"
+                        className="absolute top-0 left-0 w-full h-full rounded-lg border"
+                        style={{ minHeight: 350, maxHeight: 700 }}
+                        allowFullScreen
+                        title="Quick View PDF"
+                        frameBorder="0"
+                      ></iframe>
+                    </div>
                   </div>
-                  <div className="mt-4 flex justify-end">
-                    <Button asChild>
-                      <a href="/janam.pdf" download>
-                        <Download className="w-4 h-4 mr-2" />
-                        Download PDF
-                      </a>
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
-    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
-    {t("trainingPage.resources.illustrated")}
-    </div>
-    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
-    {t("trainingPage.resources.facilitator")}
-    </div>
-    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
-    {t("trainingPage.resources.quizzes")}
-    </div>
-    <div className="p-5 rounded-2xl border bg-white opacity-70 shadow-sm">
-    {t("trainingPage.resources.supervisor")}
-    </div>
+                </CardContent>
+                </Card>
+  
   </div>
 </div>
 
@@ -286,49 +452,88 @@ export default function TrainingPage() {
     </p>
   </div>
   <div className="md:col-span-2">
-    <Card className="rounded-2xl shadow-sm">
-      <CardContent className="p-8">
-        <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-6">
-          <div>
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" required placeholder={t("trainingPage.signup.name")} />
+  <Card className="rounded-2xl shadow-sm">
+        <CardContent className="p-8">
+          {submitStatus === 'success' && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+              <p className="text-green-800">Thank you! Your message has been sent successfully.</p>
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-800">Sorry, there was an error sending your message. Please try again.</p>
+            </div>
+          )}
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <Label htmlFor="name">Name</Label>
+              <Input 
+                id="name" 
+                name="name" 
+                type="text"
+                required 
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder={t("trainingPage.signup.name")}
+                disabled={isSubmitting}
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder={t("trainingPage.signup.email")}
+                disabled={isSubmitting}
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder={t("trainingPage.signup.phone")}
+                disabled={isSubmitting}
+              />
+            </div>
+            
+            <div className="sm:col-span-2">
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder={t("trainingPage.signup.message")}
+                rows={4}
+                disabled={isSubmitting}
+              />
+            </div>
+            
+            <div className="sm:col-span-2">
+              <Button 
+                onClick={handleSubmit}
+                className="w-full"
+                disabled={isSubmitting || !isFormValid}
+              >
+                {isSubmitting ? 'Sending...' : t("trainingPage.signup.submit")}
+              </Button>
+            </div>
           </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder={t("trainingPage.signup.email")}
-            />
-          </div>
-          <div>
-            <Label htmlFor="phone">Phone</Label>
-            <Input
-              id="phone"
-              name="phone"
-              required
-              placeholder={t("trainingPage.signup.phone")}
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea
-              id="message"
-              name="message"
-              placeholder={t("trainingPage.signup.message")}
-              rows={4}
-            />
-          </div>
-          <div className="sm:col-span-2">
-            <Button type="submit" className="w-full">
-{t("trainingPage.signup.submit")}
-            </Button>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
   </div>
 </div>
 

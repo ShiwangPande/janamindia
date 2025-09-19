@@ -23,6 +23,7 @@ import {
   Download,
   CheckCircle2,
   ArrowUp,
+  Eye,
 } from "lucide-react"
 import React from "react"
 
@@ -70,7 +71,7 @@ export default function SolutionPage() {
     { id: "hygiene", title: t("solutionPage.sections.hygiene"), icon: <ShowerHead className="w-4 h-4" /> },
     { id: "rights", title: t("solutionPage.sections.rights"), icon: <Landmark className="w-4 h-4" /> },
     { id: "myths", title: t("solutionPage.sections.myths"), icon: <HelpCircle className="w-4 h-4" /> },
-    { id: "quick-guides", title: t("solutionPage.sections.quickGuides"), icon: <Download className="w-4 h-4" /> },
+    { id: "quick-quickview", title: t("solutionPage.sections.quickview"), icon: <Eye className="w-4 h-4" /> },
   ]
 
   return (
@@ -100,27 +101,53 @@ export default function SolutionPage() {
       {/* Sections with sticky table of contents */}
       <section className="py-16 bg-white">
         <div className="container mx-auto max-w-7xl grid md:grid-cols-12 gap-8 md:gap-10 items-start">
-          <aside className="block md:col-span-3 md:sticky md:top-24 md:self-start md:max-h-[70vh] md:overflow-auto pr-2 bg-white border rounded-xl p-3 md:p-4 shadow-sm">
-            <div className="text-[11px] uppercase tracking-wide font-medium text-muted-foreground px-1 pb-2">On this page</div>
-            <nav className="space-y-0.5">
-              {sections.map(s => {
-                const active = activeId === s.id
-                return (
-                  <a
-                    key={s.id}
-                    href={`#${s.id}`}
-                    aria-current={active ? 'true' : undefined}
-                    className="block text-sm"
-                  >
-                    <span className={`flex items-center gap-2 border-l-2 pl-3 rounded-md px-1.5 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 ${active ? 'border-primary text-foreground bg-muted/60' : 'border-transparent text-muted-foreground hover:text-foreground hover:bg-muted/40'}`}>
-                      {s.icon}
-                      <span>{s.title}</span>
-                    </span>
-                  </a>
-                )
-              })}
-            </nav>
-          </aside>
+        <aside className="block md:col-span-3 md:sticky md:top-24 md:self-start md:max-h-[85vh] md:overflow-auto bg-white border rounded-2xl p-4 shadow-sm">
+  <div className="text-[11px] uppercase tracking-wide font-semibold text-muted-foreground px-1 pb-3 border-b">
+    On this page
+  </div>
+
+  <nav className="mt-3 flex flex-col">
+    {sections.map((s, i) => {
+      const active = activeId === s.id
+      return (
+        <div key={s.id}>
+          <a
+            href={`#${s.id}`}
+            aria-current={active ? "true" : undefined}
+            className="group relative block"
+          >
+            <span
+              className={`flex items-center gap-2 pl-4 pr-3 py-2.5 text-sm rounded-md transition-all duration-200 ease-in-out ${
+                active
+                  ? "text-foreground font-medium bg-muted/50"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
+              }`}
+            >
+              {/* Left accent bar (animated) */}
+              <span
+                className={`absolute left-0 top-0 h-full w-1 rounded-r-md transition-all duration-200 ${
+                  active
+                    ? "bg-primary"
+                    : "bg-transparent group-hover:bg-muted-foreground/40"
+                }`}
+              />
+              {s.icon}
+              <span>{s.title}</span>
+            </span>
+          </a>
+
+          {/* Divider under each item except last */}
+          {i !== sections.length - 1 && (
+            <div className="border-b border-black my-1"></div>
+          )}
+        </div>
+      )
+    })}
+  </nav>
+</aside>
+
+
+
           <div className="space-y-12 md:col-span-9 md:pr-4 xl:pr-8">
             <Section id="antenatal" badge={<ClipboardList className="w-4 h-4 mr-2" />} title={t("solutionPage.sections.antenatal")}>
               <Card className="rounded-2xl shadow-sm">
@@ -375,50 +402,25 @@ export default function SolutionPage() {
                 </CardContent>
               </Card>
             </Section>
-            <Section id="quick-guides" badge={<Download className="w-4 h-4 mr-2" />} title="Quick Guides (PDFs)">
-
-
-              <div className="rounded-2xl border shadow-sm">
-                <div className="p-6 md:p-7 grid sm:grid-cols-2 gap-3 text-base md:text-lg">
-                  {/* English PDF */}
-                  <button
-                    onClick={() => setOpen(true)}
-                    className="p-3 rounded-xl border bg-white hover:shadow-md transition hover:-translate-y-0.5 text-left"
-                  >
-                    Pregnancy Booklet (EN)
-                  </button>
-
-                  {/* Disabled Hindi PDF */}
-                  <span className="p-3 rounded-xl border bg-white opacity-70 pointer-events-none">
-                    Hindi – coming soon
-                  </span>
-                </div>
-              </div>
-
-              {/* PDF Viewer Modal */}
-              <Dialog open={open} onOpenChange={setOpen}>
-                <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
-                  <DialogHeader>
-                    <DialogTitle>Pregnancy Booklet (EN)</DialogTitle>
-                  </DialogHeader>
-                  <div className="flex-1 overflow-hidden">
-                    <iframe
-                      src="/janam.pdf"
-                      className="w-full h-full rounded-lg border"
-                      title="Pregnancy Booklet"
-                    />
+            <Section id="quick-quickview" badge={<Eye className="w-4 h-4 mr-2" />} title={t("solutionPage.sections.quickview")}>
+              <Card>
+                <CardContent className="p-3 md:p-7">
+                  <div className="w-full">
+                    <div className="relative" style={{ paddingTop: "56.25%" }}>
+                      <iframe
+                        src="https://www.flipbookpdf.net/web/site/a91af593e66c4fca28ebbcd0edaa10d91b3dfa0b202509.pdf.html"
+                        className="absolute top-0 left-0 w-full h-full rounded-lg border"
+                        style={{ minHeight: 350, maxHeight: 700 }}
+                        allowFullScreen
+                        title="Quick View PDF"
+                        frameBorder="0"
+                      ></iframe>
+                    </div>
                   </div>
-                  <div className="mt-4 flex justify-end">
-                    <Button asChild>
-                      <a href="/janam.pdf" download>
-                        <Download className="w-4 h-4 mr-2" />
-                        Download PDF
-                      </a>
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            </Section>
+                </CardContent>
+                </Card>
+                </Section>
+          
 
 
           </div>

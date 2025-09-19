@@ -142,3 +142,14 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+@keyframes pulse-slower {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+.animate-pulse-slow { animation: pulse-slow 8s infinite ease-in-out; }
+.animate-pulse-slower { animation: pulse-slower 12s infinite ease-in-out; }

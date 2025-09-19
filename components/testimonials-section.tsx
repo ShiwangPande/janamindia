@@ -16,99 +16,81 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       id: 1,
-      name: "Sunita Devi",
+      name: "Kumari Yadav - Mother (Mahapura, Rajasthan)",
       role: "Mother",
-      location: "Jaipur, Rajasthan",
-      date: "December 2024",
+      location: "Mahapura, Rajasthan",
+      date: "2025-03-12",
       category: "delivery",
-      image: "/indian-woman-holding-newborn-baby--smiling--rural-.png",
-      quote:
-        "When my labor started at night, I was scared. But Kamala didi, our trained midwife, was there within minutes. She guided me through everything with such care and knowledge. My baby boy was born safely at home, and the kangaroo care she taught us helped him so much.",
-      fullStory:
-        "Sunita's delivery was her third child, but her first with professional midwifery support. The trained midwife Kamala had been working in her village for six months, building trust and relationships. When Sunita went into labor at 2 AM, Kamala arrived quickly with her delivery kit and provided continuous support throughout the 8-hour labor. The safe delivery techniques and immediate kangaroo care resulted in a healthy 3.2kg baby boy with excellent APGAR scores.",
-      impact: "Safe home delivery",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/img3_evdmvu.jpg",
+      quote: "Very innovative solution. The health check-up felt organized and easy, something new for our village.",
+      fullStory: "",
+      impact: "",
       rating: 5,
-      videoUrl: "#",
     },
     {
       id: 2,
-      name: "Dr. Meera Sharma",
-      role: "Clinical Trainer",
-      location: "Mumbai, Maharashtra",
-      date: "November 2024",
+      name: "Pooja Sharma - Mother (Jaipur, Rajasthan)",
+      role: "Mother",
+      location: "Jaipur, Rajasthan",
+      date: "2025-05-28",
       category: "training",
-      image: "/group-of-indian-women-in-white-coats-receiving-cer.png",
-      quote:
-        "Training these incredible women has been the most rewarding experience of my medical career. Watching them transform from nervous students to confident midwives who save lives daily - there's nothing more fulfilling than that.",
-      fullStory:
-        "Dr. Sharma has been with Janam for 2 years, training over 150 midwives across Maharashtra. Her innovative teaching methods combine traditional knowledge with modern medical practices. She developed the hands-on simulation training that has become a cornerstone of the program, resulting in 98% pass rates and excellent field performance by graduates.",
-      impact: "150+ midwives trained",
-      rating: 5,
-      videoUrl: "#",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/poojasharma_zwx1qk.jpg",
+      quote: "The workshop was so engaging. Eva explained everything clearly, and it was refreshing to see young students take the lead.",
+      fullStory: "",
+      impact: "",
+      rating: 4,
     },
     {
       id: 3,
-      name: "Ravi Patel",
+      name: "Ravi Patel - Village Head (Krishnagiri, Tamil Nadu)",
       role: "Village Head",
-      location: "Ahmedabad, Gujarat",
-      date: "October 2024",
+      location: "Krishnagiri, Tamil Nadu",
+      date: "2025-01-19",
       category: "community",
-      image: "/mobile-medical-container-clinic-in-rural-indian-vi.png",
-      quote:
-        "The container clinic changed everything for our village. Before, women had to travel 50km to the nearest hospital. Now we have skilled care right here. Our maternal mortality has dropped to zero in the past year.",
-      fullStory:
-        "Ravi's village of 2,500 people had no healthcare facility until the Janam container clinic arrived. The mobile unit visits twice weekly, providing prenatal care, delivery support, and postnatal follow-up. The village has recorded 45 safe deliveries since the program started, with zero maternal or infant deaths - a dramatic improvement from previous years.",
-      impact: "45 safe deliveries, 0 deaths",
-      rating: 5,
-      videoUrl: "#",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/imag1_aqvjwu.jpg",
+      quote: "Initiatives like this are rare. The check-ups were managed thoughtfully, and people felt included.",
+      fullStory: "",
+      impact: "",
+      rating: 4,
     },
     {
       id: 4,
-      name: "Priya Kumari",
-      role: "New Mother",
-      location: "Patna, Bihar",
-      date: "September 2024",
+      name: "Rekha Narsimhan - Mother (Mahapura, Rajasthan)",
+      role: "Mother",
+      location: "Mahapura, Rajasthan",
+      date: "2025-07-03",
       category: "delivery",
-      image: "/indian-midwife-helping-pregnant-mother-in-rural-se.png",
-      quote:
-        "I was so worried about my first pregnancy. The WhatsApp support group and regular check-ups from the mobile clinic gave me confidence. When my daughter was born, I knew exactly what to do because of all the education I received.",
-      fullStory:
-        "Priya, 22, was a first-time mother in a remote village with limited healthcare access. Through Janam's digital outreach program, she received regular pregnancy guidance via WhatsApp, attended mobile clinic sessions, and learned essential newborn care practices. Her delivery was attended by a trained community midwife, and both mother and baby remained healthy throughout the postnatal period.",
-      impact: "Healthy first-time delivery",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230944/img5_xmlcqb.jpg",
+      quote: "I found the check-up very helpful. It’s inspiring to see students working on issues that usually don’t get attention.",
+      fullStory: "",
+      impact: "",
       rating: 5,
-      videoUrl: "#",
     },
     {
       id: 5,
-      name: "Kamala Devi",
-      role: "Community Midwife",
-      location: "Udaipur, Rajasthan",
-      date: "August 2024",
+      name: "Kamala Devi - Midwife in Training (Jaipur, Rajasthan)",
+      role: "Midwife in Training",
+      location: "Jaipur, Rajasthan",
+      date: "2025-06-15",
       category: "midwife",
-      image: "/indian-midwife-helping-pregnant-mother-in-rural-se.png",
-      quote:
-        "Before the training, I helped with deliveries but always felt uncertain. Now I have the knowledge and confidence to handle complications. I've safely delivered 67 babies this year, and each one fills my heart with joy.",
-      fullStory:
-        "Kamala, 45, had been assisting with births in her community for years using traditional methods. After completing Janam's 6-month training program, she became a certified community midwife. Her skills in recognizing complications, managing emergencies, and providing quality care have made her the most trusted healthcare provider in her area, serving 8 surrounding villages.",
-      impact: "67 safe deliveries",
-      rating: 5,
-      videoUrl: "#",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/img6_mcyxkm.jpg",
+      quote: "The approach was simple but effective. The check-up gave us clarity and support in a way we hadn’t seen before.",
+      fullStory: "",
+      impact: "",
+      rating: 4,
     },
     {
       id: 6,
-      name: "Rajesh Kumar",
-      role: "Father",
-      location: "Bhopal, Madhya Pradesh",
-      date: "July 2024",
-      category: "family",
-      image: "/indian-woman-holding-newborn-baby--smiling--rural-.png",
-      quote:
-        "The 'Fathers for Care' program opened my eyes. I learned how to support my wife during pregnancy and delivery. Being actively involved made our whole family stronger, and our son is healthy and happy.",
-      fullStory:
-        "Rajesh participated in Janam's innovative 'Fathers for Care' program, which educates men about their role in maternal health. Through workshops and peer support groups, he learned about pregnancy care, emotional support, and newborn care. His active involvement during his wife's pregnancy and delivery contributed to a positive birth experience and stronger family bonds.",
-      impact: "Enhanced family support",
-      rating: 5,
-      videoUrl: "#",
+      name: "Minal Jain (School Counselor, Jaipur, Rajasthan)",
+      role: "School Counselor",
+      location: "Jaipur, Rajasthan",
+      date: "2025-02-22",
+      category: "community",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/img4_zctoeu.jpg",
+      quote: "Exceptional thinking, very innovative approach, and so well executed. It’s inspiring to see my students put so much effort into an overlooked cause.",
+      fullStory: "",
+      impact: "",
+      rating: 4,
     },
   ]
 
@@ -216,9 +198,7 @@ export function TestimonialsSection() {
                   >
                     {selectedStory === testimonial.id ? (language === "hi" ? "कम दिखाएं" : "Show Less") : (language === "hi" ? "और पढ़ें" : "Read More")}
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-8 px-2 text-xs">
-                    <Play className="h-3 w-3" />
-                  </Button>
+               
                 </div>
               </div>
 

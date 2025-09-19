@@ -40,20 +40,7 @@ enum DonationStatus {
   CANCELLED
 }
 
-model VolunteerApplication {
-  id          String   @id @default(cuid())
-  firstName   String
-  lastName    String
-  email       String
-  phone       String
-  city        String
-  state       String
-  path        String
-  experience  String?
-  motivation  String?
-  availability String?
-  createdAt   DateTime @default(now())
-}
+
 
 model Testimonial {
   id        String   @id @default(cuid())
@@ -73,3 +60,56 @@ model MediaFile {
   createdAt DateTime @default(now())
 }
 
+model Signup {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("signups")
+}
+
+enum RolePreference {
+  WORKSHOP_FACILITATOR
+  TRAINER
+  FIELD_VOLUNTEER
+  FUNDRAISER
+}
+
+enum Availability {
+  WEEKDAYS
+  WEEKENDS
+  FLEXIBLE
+}
+
+model VolunteerApplication {
+  id           String         @id @default(cuid())
+  name         String
+  email        String
+  organization String?
+  role         RolePreference
+  availability Availability
+  skills       String?
+  message      String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("volunteer_applications")
+}
+
+model ContactSubmission {
+  id          String   @id @default(cuid())
+  name        String   @db.VarChar(100)
+  email       String   @db.VarChar(255)
+  phone       String?  @db.VarChar(20)
+  message     String   @db.Text
+  submittedAt DateTime @default(now())
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("contact_submissions")
+}

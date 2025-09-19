@@ -25,6 +25,7 @@ import {
   Bot
 } from "lucide-react"
 import { Info, ShieldCheck, Briefcase } from "lucide-react"
+import Gallery from "@/components/gallery"
 
 export default function HomePage() {
   const { t, language } = useLanguage()
@@ -158,17 +159,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div> */}
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 grid grid-cols-2 gap-4">
-              {["/placeholder.jpg","/indian-woman-holding-newborn-baby--smiling--rural-.png","/mobile-medical-container-clinic-in-rural-indian-vi.png","/group-of-indian-women-in-white-coats-receiving-cer.png"].map((src,i)=> (
-                <Image key={i} src={src} alt="Janam gallery item" width={640} height={480} className="w-full h-auto aspect-[4/3] object-cover rounded-2xl border" />
-              ))}
-            </div>
-            <div className="aspect-video w-full rounded-2xl overflow-hidden border bg-black/5">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Janam Work Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            </div>
-          </div>
+        <Gallery/>
 
           {/* Container cost info */}
           <Card className="rounded-2xl">
@@ -182,33 +173,81 @@ export default function HomePage() {
 
           <TestimonialsSection />
           <ContainerWalkthrough />
-
+            
           {/* Problem section */}
           <section className="py-8">
             <div className="rounded-2xl border bg-muted/30 p-6">
-              <div className="text-center mb-6">
+              <div className="text-center mb-8">
                 <Badge variant="secondary" className="mb-2">{t("homePage.ourWork.problem")}</Badge>
                 <h3 className="text-2xl font-bold tracking-tight">{t("homePage.ourWork.problemTitle")}</h3>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">{t("homePage.ourWork.dailyDeaths")}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-muted-foreground">{t("homePage.ourWork.dailyDeathsDesc")}</CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">{t("homePage.ourWork.ruralAccess")}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-muted-foreground">{t("homePage.ourWork.ruralAccessDesc")}</CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">{t("homePage.ourWork.knowledgeFollowup")}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-muted-foreground">{t("homePage.ourWork.knowledgeFollowupDesc")}</CardContent>
-                </Card>
+              <div className="grid md:grid-cols-2 gap-10">
+                {/* The Problem */}
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-primary">{t("homePage.ourWork.problemTitle1")}</h4>
+                  <div className="space-y-5 text-base text-muted-foreground">
+                    <div className="flex items-start gap-3">
+                      <span className="inline-block mt-1 text-primary font-bold text-2xl">{t("homePage.ourWork.problemFigure1")}</span>
+                      <span>
+                      {t("homePage.ourWork.problemDescription1")}
+                        <span className="block text-xs text-gray-500 mt-1">{t("homePage.ourWork.problemTitle2")}</span>
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="inline-block mt-1 text-primary font-bold text-2xl">{t("homePage.ourWork.problemFigure2")}</span>
+                      <span>
+                      {t("homePage.ourWork.problemDescription2")} 
+                        <span className="block text-xs text-gray-500 mt-1">{t("homePage.ourWork.problemTitle3")}</span>
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="inline-block mt-1 text-primary font-bold text-2xl">{t("homePage.ourWork.problemFigure3")}</span>
+                      <span>
+                      {t("homePage.ourWork.problemDescription3")}
+                        <span className="block text-xs text-gray-500 mt-1">{t("homePage.ourWork.problemTitle4")}</span>
+                      </span>
+                    </div>
+                    <ul className="list-disc pl-6 space-y-2 mt-4">
+                      <li>
+                        <span className="font-medium"> {t("homePage.ourWork.problemDescription4")}</span>
+                      </li>
+                      <li>
+                        <span className="font-medium"> {t("homePage.ourWork.problemDescription5")} </span>
+                      </li>
+                      <li>
+                        <span className="font-medium"> {t("homePage.ourWork.problemDescription6")} </span>
+                        <span className="block text-xs text-gray-500">{t("homePage.ourWork.problemTitle5")}</span>
+                      </li>
+                    </ul>
+                    <div className="mt-4">
+                      <span className="font-medium text-primary">{t("homePage.ourWork.problemTitle6")} </span> {t("homePage.ourWork.problemDescription7")}
+                    </div>
+                  </div>
+                </div>
+                {/* Our Approach */}
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-primary">   {t("homePage.ourWork.approachtitle1")} </h4>
+                  <div className="space-y-5 text-base text-muted-foreground">
+                    <div className="rounded-lg bg-white/80 border p-4 shadow-sm">
+                      <span className="font-semibold text-primary">{t("homePage.ourWork.approachtitle2")}</span>
+                      <p className="mt-1">
+                      {t("homePage.ourWork.approach1")}
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-white/80 border p-4 shadow-sm">
+                      <span className="font-semibold text-primary">{t("homePage.ourWork.approachtitle3")}</span>
+                      <p className="mt-1">
+                      {t("homePage.ourWork.approach2")}  
+                      </p>
+                    </div>
+                    <div className="rounded-lg bg-white/80 border p-4 shadow-sm">
+                      <span className="font-semibold text-primary">{t("homePage.ourWork.approachtitle4")}</span>
+                      <p className="mt-1">
+                      {t("homePage.ourWork.approach3")}  
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

@@ -4,9 +4,90 @@ import { DonationPortal } from "@/components/donation-portal"
 import { SiteHeader } from "@/components/site-header"
 import { useLanguage } from "@/lib/language-context"
 import { ArrowDown } from "lucide-react"
+import React, { useState } from 'react';
 
 export default function GetInvolvedPage() {
   const { t } = useLanguage()
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    organization: '',
+    role: '',
+    availability: '',
+    skills: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user changes input
+    if (submitStatus === 'error') {
+      setSubmitStatus(null);
+      setErrorMessage('');
+    }
+  };
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setErrorMessage('');
+
+    // Basic client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.role || !formData.availability) {
+      setSubmitStatus('error');
+      setErrorMessage('Please fill in all required fields');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/volunteer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus('success');
+        // Clear the form
+        setFormData({
+          name: '',
+          email: '',
+          organization: '',
+          role: '',
+          availability: '',
+          skills: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.message || 'There was an error submitting your application. Please try again.');
+        console.error('Form submission error:', result.message);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isFormValid = formData.name.trim() && formData.email.trim() && formData.role && formData.availability;
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SiteHeader />
@@ -92,54 +173,114 @@ export default function GetInvolvedPage() {
             </div>
           </div>
 
-          {/* Volunteer Application Form */}
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-1">
               <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-merriweather)]">{t("getInvolvedPage.volunteer.application")}</h2>
               <p className="text-muted-foreground">{t("getInvolvedPage.volunteer.applicationDesc")}</p>
             </div>
             <div className="md:col-span-2">
-              <form className="grid sm:grid-cols-2 gap-4 bg-white p-6 rounded-2xl border shadow-sm">
-                <input className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Name *" required />
-                <input className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Email *" type="email" required />
-                <input className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Organization (optional)" />
-                <select className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" defaultValue="" required>
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+                  <p className="text-green-800">Thank you! Your volunteer application has been submitted successfully. We'll be in touch soon.</p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                  <p className="text-red-800">{errorMessage || "Sorry, there was an error submitting your application. Please try again."}</p>
+                </div>
+              )}
+
+              <div className="grid sm:grid-cols-2 gap-4 bg-white p-6 rounded-2xl border shadow-sm">
+                <input 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  placeholder="Name *" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                  required 
+                />
+                
+                <input 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  placeholder="Email *" 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                  required 
+                />
+                
+                <input 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  placeholder="Organization (optional)" 
+                  name="organization"
+                  value={formData.organization}
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                />
+                
+                <select 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  value={formData.role}
+                  name="role"
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                  required
+                >
                   <option value="" disabled>Role preference *</option>
-                  <option>Workshop facilitator</option>
-                  <option>Trainer</option>
-                  <option>Field volunteer</option>
-                  <option>Fundraiser</option>
+                  <option value="WORKSHOP_FACILITATOR">Workshop facilitator</option>
+                  <option value="TRAINER">Trainer</option>
+                  <option value="FIELD_VOLUNTEER">Field volunteer</option>
+                  <option value="FUNDRAISER">Fundraiser</option>
                 </select>
-                <select className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" defaultValue="" required>
+                
+                <select 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  value={formData.availability}
+                  name="availability"
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                  required
+                >
                   <option value="" disabled>Availability *</option>
-                  <option>Weekdays</option>
-                  <option>Weekends</option>
-                  <option>Flexible</option>
+                  <option value="WEEKDAYS">Weekdays</option>
+                  <option value="WEEKENDS">Weekends</option>
+                  <option value="FLEXIBLE">Flexible</option>
                 </select>
-                <input className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Skills (comma separated)" />
-                <textarea className="p-3 rounded-md border col-span-2 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Message" rows={5} />
-                <button className="col-span-2 p-3 rounded-md bg-primary text-white font-semibold hover:bg-secondary-foreground transition">
-                  Submit Application
+                
+                <input 
+                  className="p-3 rounded-md border focus:ring-2 focus:ring-primary focus:outline-none" 
+                  placeholder="Skills (comma separated)" 
+                  name="skills"
+                  value={formData.skills}
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                />
+                
+                <textarea 
+                  className="p-3 rounded-md border col-span-2 focus:ring-2 focus:ring-primary focus:outline-none" 
+                  placeholder="Message" 
+                  rows={5} 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  disabled={isSubmitting}
+                />
+                
+                <button 
+                  className="col-span-2 p-3 rounded-md bg-primary text-white font-semibold hover:bg-secondary-foreground transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting || !isFormValid}
+                  type="button"
+                >
+                  {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
                 </button>
-              </form>
+              </div>
             </div>
           </div>
-
-          {/* Host a Campaign */}
-          {/* <div id="campaign" className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-1">
-              <h2 className="text-3xl font-bold mb-4 font-[family-name:var(--font-merriweather)]">Host a Campaign</h2>
-              <p className="text-muted-foreground">Run school drives, dance marathons, or local fundraisers. Use our starter kit to get going.</p>
-            </div>
-            <div className="md:col-span-2 grid sm:grid-cols-2 gap-6">
-              <a className="p-4 rounded-xl border bg-white shadow-sm hover:shadow-md transition cursor-not-allowed opacity-60" href="#" aria-disabled>
-                Campaign Starter Kit (PDF) – coming soon
-              </a>
-              <a className="p-4 rounded-xl border bg-white shadow-sm hover:shadow-md transition" href="/contact">
-                Talk to Our Team
-              </a>
-            </div>
-          </div> */}
         </div>
       </section>
     </div>

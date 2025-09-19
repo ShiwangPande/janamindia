@@ -22,8 +22,7 @@ import {
 export function ContainerWalkthrough() {
   const [currentView, setCurrentView] = useState(0)
   const [selectedHotspot, setSelectedHotspot] = useState<number | null>(null)
-  const { language } = useLanguage()
-
+  const { t, language } = useLanguage()
   const containerViews = [
     {
       id: 0,
@@ -98,7 +97,7 @@ export function ContainerWalkthrough() {
   const currentContainer = containerViews[currentView]
 
   return (
-  <div className="space-y-10">
+    <div className="space-y-10">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-3 font-[family-name:var(--font-space-grotesk)] tracking-tight">
           {language === "hi" ? "कंटेनर क्लिनिक वॉकथ्रू" : "Container Clinic Walkthrough"}
@@ -109,6 +108,34 @@ export function ContainerWalkthrough() {
             : "Explore our innovative mobile healthcare solution bringing professional medical care directly to remote villages across India."}
         </p>
       </div>
+
+      {/* Why Container Clinics Card */}
+      <Card className="rounded-2xl shadow-sm border bg-gradient-to-br from-primary/5 to-secondary/5">
+        <CardHeader>
+          <CardTitle className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)]">
+          {t("homePage.ourWork.containerTitle")} 
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2 text-base md:text-lg text-muted-foreground list-disc pl-5">
+            <li>
+              <span className="font-semibold text-foreground">{t("homePage.ourWork.containerTitle1")}:</span> {t("homePage.ourWork.containerText1")} 
+            </li>
+            <li>
+              <span className="font-semibold text-foreground">{t("homePage.ourWork.containerTitle2")} :</span> {t("homePage.ourWork.containerText2")} 
+            </li>
+            <li>
+              <span className="font-semibold text-foreground"> {t("homePage.ourWork.containerTitle3")} :</span> {t("homePage.ourWork.containerText3")} 
+            </li>
+            <li>
+              <span className="font-semibold text-foreground"> {t("homePage.ourWork.containerTitle4")} :</span> {t("homePage.ourWork.containerText4")} 
+            </li>
+            <li>
+              <span className="font-semibold text-foreground"> {t("homePage.ourWork.containerTitle5")} :</span> {t("homePage.ourWork.containerText5")} 
+            </li>
+          </ul>
+        </CardContent>
+      </Card>
 
       <div className="grid lg:grid-cols-3 gap-8 items-start">
         {/* Main Viewer */}
@@ -268,54 +295,52 @@ export function ContainerWalkthrough() {
       </div>
 
       {/* Impact Stats */}
-      {/* Impact Stats */}
-<Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20 rounded-2xl">
-  <CardContent className="pt-6">
-    <div className="text-center mb-6">
-      <h3 className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)]">
-        {language === "hi" ? "कंटेनर क्लिनिक प्रभाव" : "Container Clinic Impact"}
-      </h3>
-      <p className="text-muted-foreground">
-        {language === "hi"
-          ? "हमारी मोबाइल स्वास्थ्य इकाइयों से वास्तविक परिणाम"
-          : "Real results from our mobile healthcare units"}
-      </p>
-    </div>
-    <div className="grid md:grid-cols-5 gap-6 text-center">
-      <div>
-        <div className="text-2xl font-bold text-primary mb-1">3</div>
-        <p className="text-sm text-muted-foreground">
-          {language === "hi" ? "सक्रिय कंटेनर" : "Active Containers"}
-        </p>
-      </div>
-      <div>
-        <div className="text-2xl font-bold text-primary mb-1">4</div>
-        <p className="text-sm text-muted-foreground">
-          {language === "hi" ? "सुरक्षित प्रसव" : "Safe Deliveries"}
-        </p>
-      </div>
-      <div>
-        <div className="text-2xl font-bold text-primary mb-1">50+</div>
-        <p className="text-sm text-muted-foreground">
-          {language === "hi" ? "जाँच के लिए आई महिलाएँ" : "Women that came for check ups"}
-        </p>
-      </div>
-      <div>
-        <div className="text-2xl font-bold text-primary mb-1">10+</div>
-        <p className="text-sm text-muted-foreground">
-          {language === "hi" ? "सेवा प्राप्त गाँव" : "Villages Served"}
-        </p>
-      </div>
-      <div>
-        <div className="text-2xl font-bold text-primary mb-1">98%</div>
-        <p className="text-sm text-muted-foreground">
-          {language === "hi" ? "सफलता दर" : "Success Rate"}
-        </p>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
+      <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20 rounded-2xl">
+        <CardContent className="pt-6">
+          <div className="text-center mb-6">
+            <h3 className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)]">
+              {language === "hi" ? "कंटेनर क्लिनिक प्रभाव" : "Container Clinic Impact"}
+            </h3>
+            <p className="text-muted-foreground">
+              {language === "hi"
+                ? "हमारी मोबाइल स्वास्थ्य इकाइयों से वास्तविक परिणाम"
+                : "Real results from our mobile healthcare units"}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-5 gap-6 text-center">
+            <div>
+              <div className="text-2xl font-bold text-primary mb-1">3</div>
+              <p className="text-sm text-muted-foreground">
+                {language === "hi" ? "सक्रिय कंटेनर" : "Active Containers"}
+              </p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary mb-1">4</div>
+              <p className="text-sm text-muted-foreground">
+                {language === "hi" ? "सुरक्षित प्रसव" : "Safe Deliveries"}
+              </p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary mb-1">50+</div>
+              <p className="text-sm text-muted-foreground">
+                {language === "hi" ? "जाँच के लिए आई महिलाएँ" : "Women that came for check ups"}
+              </p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary mb-1">10+</div>
+              <p className="text-sm text-muted-foreground">
+                {language === "hi" ? "सेवा प्राप्त गाँव" : "Villages Served"}
+              </p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary mb-1">98%</div>
+              <p className="text-sm text-muted-foreground">
+                {language === "hi" ? "सफलता दर" : "Success Rate"}
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
