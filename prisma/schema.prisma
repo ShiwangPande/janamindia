@@ -113,3 +113,14 @@ model ContactSubmission {
 
   @@map("contact_submissions")
 }
+
+model Partner {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  company   String?
+  ideas     String?      // renamed from message
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

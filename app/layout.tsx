@@ -49,7 +49,7 @@ export default function RootLayout({
     clerkPublishableKey ? (
       <ClerkProvider>
         <html lang="en">
-          <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`} style={{ scrollBehavior: "smooth" }}>
+          <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable} overflow-x-hidden `} style={{ scrollBehavior: "smooth" }}>
             <LanguageProvider>
               {children}
               <ChatBot  />
@@ -60,7 +60,7 @@ export default function RootLayout({
       </ClerkProvider>
     ) : (
       <html lang="en">
-        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable}`} style={{ scrollBehavior: "smooth" }}>
+        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${merriweather.variable} ${inter.variable} ${logoFont.variable} overflow-x-hidden `} style={{ scrollBehavior: "smooth" }}>
           <LanguageProvider>
             {children}
             <ChatBot  />

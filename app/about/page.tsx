@@ -22,11 +22,12 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col overflow-x-hidden">
       <SiteHeader />
 
+
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30 py-24">
+      <section className="relative m-0 px-4 sm:px-0 bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30 py-24">
         <div className="container mx-auto max-w-5xl text-center">
           <Badge variant="secondary" className="mb-6 text-sm px-4 py-1">{t("nav.about") || "About"}</Badge>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 font-[family-name:var(--font-merriweather)] text-primary">
@@ -39,7 +40,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision, Crisis, Solution */}
-      <section className="py-20">
+      <section className="py-20 m-0 px-4 sm:px-0">
         <div className="container mx-auto max-w-7xl grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p, i) => (
             <div key={i} className="p-6 rounded-2xl bg-white border shadow-sm hover:shadow-md transition flex flex-col items-start">
@@ -51,8 +52,29 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team */}
+      <section className="py-20 m-0 px-4 sm:px-0 bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30">
+        <div className="container mx-auto text-center mb-12">
+          <Badge variant="secondary" className="mb-4">{t("aboutPage.team.label")}</Badge>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-merriweather)] text-primary">{t("aboutPage.team.title")}</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            {t("aboutPage.team.subtitle")}
+          </p>
+        </div>
+        <div className="container mx-auto grid gap-10 md:grid-cols-3">
+          {team.map((member) => (
+            <div key={member.name} className="p-6 rounded-2xl bg-white shadow-sm border hover:shadow-lg transition flex flex-col items-center text-center">
+              <Image src={member.img} alt={member.name} width={120} height={120} className="rounded-full object-cover ring-4 ring-primary/10" />
+              <h3 className="mt-4 text-xl font-semibold">{member.name}</h3>
+              <p className="text-primary font-medium">{member.role}</p>
+              <p className="text-muted-foreground mt-2">{member.bio}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* About Us / Origin */}
-      <section className="py-20 bg-[#FFF3E6]">
+      <section className="py-20 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
         <div className="container mx-auto max-w-7xl grid md:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl font-bold text-primary mb-6">{t("aboutPage.story.title")}</h2>
@@ -75,8 +97,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      
-      <section className="py-20 bg-[#FFF3E6]">
+
+      <section className="py-20 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold text-primary mb-6">{t("aboutPage.origin.title")}</h2>
           <p className="text-muted-foreground leading-relaxed space-y-4">
@@ -88,8 +110,9 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
       {/* Timeline */}
-      <section className="py-20">
+      <section className="py-20 m-0 px-4 sm:px-0">
         <div className="container mx-auto max-w-5xl text-center mb-12">
           <h2 className="text-3xl font-bold text-primary">{t("aboutPage.journey.title")}</h2>
         </div>
@@ -99,41 +122,34 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30">
-        <div className="container mx-auto text-center mb-12">
-          <Badge variant="secondary" className="mb-4">{t("aboutPage.journey.label")}</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-[family-name:var(--font-merriweather)] text-primary">{t("aboutPage.team.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          {t("aboutPage.team.subtitle")}
-          </p>
-        </div>
-        <div className="container mx-auto grid gap-10 md:grid-cols-3">
-          {team.map((member) => (
-            <div key={member.name} className="p-6 rounded-2xl bg-white shadow-sm border hover:shadow-lg transition flex flex-col items-center text-center">
-              <Image src={member.img} alt={member.name} width={120} height={120} className="rounded-full object-cover ring-4 ring-primary/10" />
-              <h3 className="mt-4 text-xl font-semibold">{member.name}</h3>
-              <p className="text-primary font-medium">{member.role}</p>
-              <p className="text-muted-foreground mt-2">{member.bio}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* Extended Origin */}
-  
+
 
       {/* Instagram */}
-      <section className="py-20 bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/20">
-        <div className="container mx-auto max-w-5xl text-center">
-          <h2 className="text-3xl font-bold text-primary mb-4">Instagram</h2>
-          <p className="text-muted-foreground mb-6">Follow our journey and latest updates.</p>
-          <div className="mx-auto max-w-3xl">
-            <div className="aspect-[16/9] w-full rounded-xl overflow-hidden border bg-white flex items-center justify-center text-muted-foreground shadow-sm">
-              Instagram feed placeholder
-            </div>
-          </div>
+      <section className="py-20 bg-gradient-to-br m-0 px-4 sm:px-0 from-[#FFF3E6] via-white to-[#A5D6A7]/20">
+        <div className="container mx-auto max-w-6xl text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Instagram</h2>
+          <p className="text-muted-foreground mb-8">
+            Follow our journey and latest updates.
+          </p>
+
+
+
+          {/* Visit Instagram button */}
+          <a
+            href="https://www.instagram.com/janam_org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary-foreground transition"
+          >
+            Visit Instagram
+          </a>
         </div>
       </section>
+
     </div>
+
   )
 }

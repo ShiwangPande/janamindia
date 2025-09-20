@@ -11,6 +11,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { HelpCircle } from "lucide-react"
+
 
 export default function TrainingPage() {
   const { t } = useLanguage()
@@ -80,12 +88,13 @@ export default function TrainingPage() {
 
   const isFormValid = formData.name && formData.email && formData.phone;
 
+
   return (
     <div className="min-h-screen bg-background text-gray-900">
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30 py-24">
+      <section className=" m-0 px-4 sm:px-0  relative bg-gradient-to-br from-[#FFF3E6] via-white to-[#A5D6A7]/30 py-24">
         <div className="container mx-auto max-w-5xl text-center relative">
           <Badge variant="secondary" className="mb-3">{t("trainingPage.hero.badge")}</Badge>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-primary">
@@ -109,11 +118,11 @@ export default function TrainingPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className=" m-0 px-4 sm:px-0  py-16">
         <div className="container mx-auto max-w-7xl space-y-20">
 
           {/* Overview Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className=" m-0 px-4 sm:px-0  grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <Card className="shadow-sm">
               <CardHeader className="text-center">
                 <BookOpen className="h-12 w-12 text-primary mx-auto mb-2" />
@@ -121,8 +130,8 @@ export default function TrainingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-base text-gray-600">
-                {t("trainingPage.features.programtext")}
-                  
+                  {t("trainingPage.features.programtext")}
+
                 </p>
               </CardContent>
             </Card>
@@ -133,7 +142,7 @@ export default function TrainingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-base text-gray-600">
-                {t("trainingPage.features.paternshiptext")}  
+                  {t("trainingPage.features.paternshiptext")}
                 </p>
               </CardContent>
             </Card>
@@ -144,400 +153,304 @@ export default function TrainingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-base text-gray-600">
-                {t("trainingPage.features.deliverytext")}  
+                  {t("trainingPage.features.deliverytext")}
                 </p>
               </CardContent>
             </Card>
           </div>
 
-        {/* Curriculum */}
-<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-      {t("trainingPage.curriculum.title")}
-    </h2>
-    <p className="text-base text-gray-600">
-      {t("trainingPage.curriculum.subtitle")}
-    </p>
-  </div>
-  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
-    {(t("trainingPage.curriculum.modules") as unknown as string[]).map((item: string, i: number) => (
-      <div
-        key={i}
-        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
-      >
-        <CheckCircle2 className="w-5 h-5 text-primary mt-1" />
-        <span className="text-base text-gray-700">{item}</span>
-      </div>
-    ))}
-  </div>
-</div>
+          {/* Curriculum */}
+          <div className=" m-0 px-4 sm:px-0  py-16 border-b">
+            {/* Title & Subtitle */}
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold text-primary font-[family-name:var(--font-merriweather)] leading-snug">
+                {t("trainingPage.curriculum.title")}
+              </h2>
+              <p className="text-base text-gray-600 leading-relaxed mt-3">
+                {t("trainingPage.curriculum.subtitle")}
+              </p>
+            </div>
 
-{/* Delivery Model */}
-<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-      {t("trainingPage.delivery.title")}
-    </h2>
-    <p className="text-base text-gray-600">
-      {t("trainingPage.delivery.subtitle")}
-    </p>
-  </div>
-  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
-    {(t("trainingPage.delivery.methods") as unknown as string[]).map((item: string, i: number) => (
-      <div
-        key={i}
-        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
-      >
-        <Layout className="w-5 h-5 text-primary mt-1" />
-        <span className="text-base text-gray-700">{item}</span>
-      </div>
-    ))}
-  </div>
-</div>
-
-<div id="videos" className="py-16 border-b">
-  <h2 className="text-3xl font-bold text-primary mb-6 text-center font-[family-name:var(--font-merriweather)]">
-    Video Library
-  </h2>
-  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-    {[
-      { src: "https://www.youtube-nocookie.com/embed/d3KAGsU3RqA?rel=0&modestbranding=1&controls=1&showinfo=0" },
-      { src: "https://www.youtube-nocookie.com/embed/F_dkUmR9-tU?rel=0&modestbranding=1&controls=1&showinfo=0" },
-      { src: "https://www.youtube-nocookie.com/embed/mfUfVLlnCC8?rel=0&modestbranding=1&controls=1&showinfo=0" },
-      { src: "https://www.youtube-nocookie.com/embed/j1-eG0nUBMI?rel=0&modestbranding=1&controls=1&showinfo=0" },
-    ].map((video, i) => (
-      <Card
-        key={i}
-        className="overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition"
-      >
-        <div className="aspect-video bg-gray-100 flex items-center justify-center text-gray-500">
-          <iframe
-            src={video.src}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full rounded-xl"
-          />
-        </div>
-      </Card>
-    ))}
-  </div>
-</div>
+            {/* Modules */}
+            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5">
+              {(t("trainingPage.curriculum.modules") as unknown as string[]).map(
+                (item: string, i: number) => (
+                  <div
+                    key={i}
+                    className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                    <span className="text-base text-gray-700">{item}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
 
 
 
-{/* Outcomes & Follow-ups */}
-<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-      {t("trainingPage.support.title")}
-    </h2>
-    <p className="text-base text-gray-600">
-      {t("trainingPage.support.subtitle")}
-    </p>
-  </div>
-  <div className="md:col-span-2 grid sm:grid-cols-2 gap-5">
-    {(t("trainingPage.support.support") as unknown as string[]).map((item: string, i: number) => (
-      <div
-        key={i}
-        className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
-      >
-        <ClipboardList className="w-5 h-5 text-primary mt-1" />
-        <span className="text-base text-gray-700">{item}</span>
-      </div>
-    ))}
-  </div>
-</div>
+          {/* Delivery Model */}
+          <div className=" m-0 px-4 sm:px-0  py-16 border-b text-center">
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+              {t("trainingPage.delivery.title")}
+            </h2>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10">
+              {t("trainingPage.delivery.subtitle")}
+            </p>
 
-{/* FAQ */}
-<div className="grid md:grid-cols-3 gap-8 py-16 border-b">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-    {t("trainingPage.faq.title")} 
-    </h2>
-    <p className="text-base text-gray-600"> {t("trainingPage.faq.subtitle")} </p>
-  </div>
-  <div className="md:col-span-2 grid gap-5">
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">{t("trainingPage.faq.cardtitle1")} </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content1")}  
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle2")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content2")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle3")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content3")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle4")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content4")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle5")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content5")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle6")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content6")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle7")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content7")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle8")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content8")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle9")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content9")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle10")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content10")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle11")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content11")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle12")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content12")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle13")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content13")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle14")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content14")}   
-      </CardContent>
-    </Card>
-    <Card className="shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold">
-        {t("trainingPage.faq.cardtitle15")}  
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-base text-gray-600">
-      {t("trainingPage.faq.content15")}   
-      </CardContent>
-    </Card>
-  </div>
-</div>
+            {/* Methods */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto text-left">
+              {(t("trainingPage.delivery.methods") as unknown as string[]).map(
+                (item: string, i: number) => (
+                  <div
+                    key={i}
+                    className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+                  >
+                    <Layout className="w-5 h-5 text-primary mt-1 shrink-0" />
+                    <span className="text-base text-gray-700">{item}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
 
-{/* Resources */}
-<div id="resources" className="grid md:grid-cols-3 gap-8 py-16 border-b">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-    {t("trainingPage.resources.title")}   
-    </h2>
-    <p className="text-base text-gray-600">
-    {t("trainingPage.resources.subtitle")}
-    </p>
-  </div>
-  <div className="md:col-span-2">
-  <Card>
+
+
+
+          <div id="videos" className=" m-0 px-4 sm:px-0  py-16 border-b">
+            <h2 className="text-3xl font-bold text-primary mb-6 text-center font-[family-name:var(--font-merriweather)]">
+              Video Library
+            </h2>
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {[
+                { src: "https://www.youtube-nocookie.com/embed/d3KAGsU3RqA?rel=0&modestbranding=1&controls=1&showinfo=0" },
+                { src: "https://www.youtube-nocookie.com/embed/F_dkUmR9-tU?rel=0&modestbranding=1&controls=1&showinfo=0" },
+                { src: "https://www.youtube-nocookie.com/embed/mfUfVLlnCC8?rel=0&modestbranding=1&controls=1&showinfo=0" },
+                { src: "https://www.youtube-nocookie.com/embed/j1-eG0nUBMI?rel=0&modestbranding=1&controls=1&showinfo=0" },
+              ].map((video, i) => (
+                <Card
+                  key={i}
+                  className="overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition"
+                >
+                  <div className="aspect-video bg-gray-100 flex items-center justify-center text-gray-500">
+                    <iframe
+                      src={video.src}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full rounded-xl"
+                    />
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+
+
+          {/* Outcomes & Follow-ups */}
+          <div className=" m-0 px-4 sm:px-0  py-16 border-b text-center">
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+              {t("trainingPage.support.title")}
+            </h2>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10">
+              {t("trainingPage.support.subtitle")}
+            </p>
+
+            {/* Support Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto text-left">
+              {(t("trainingPage.support.support") as unknown as string[]).map(
+                (item: string, i: number) => (
+                  <div
+                    key={i}
+                    className="p-5 rounded-2xl border bg-white shadow-sm flex items-start gap-3"
+                  >
+                    <ClipboardList className="w-5 h-5 text-primary mt-1 shrink-0" />
+                    <span className="text-base text-gray-700">{item}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+
+          {/* FAQ */}
+          {/* FAQ */}
+          <div className="py-16 border-b text-center">
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+              {t("trainingPage.faq.title")}
+            </h2>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              {t("trainingPage.faq.subtitle")}
+            </p>
+
+            {/* Accordion */}
+            <div className="max-w-4xl mx-auto text-left">
+              <Accordion type="single" collapsible className="w-full divide-y rounded-2xl border bg-white shadow-sm">
+                {Array.from({ length: 15 }).map((_, i) => (
+                  <AccordionItem key={i} value={`item-${i}`} className="px-4">
+                    <AccordionTrigger className="flex items-center gap-3 py-4 text-left text-lg font-semibold hover:text-primary transition-colors">
+                      <HelpCircle className="w-5 h-5 text-primary shrink-0" />
+                      <span>{t(`trainingPage.faq.cardtitle${i + 1}`)}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 pl-8 text-base text-gray-600 leading-relaxed">
+                      {t(`trainingPage.faq.content${i + 1}`)}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+
+
+          {/* Resources */}
+          <div id="resources" className="py-16 border-b text-center">
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+              {t("trainingPage.resources.title")}
+            </h2>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10">
+              {t("trainingPage.resources.subtitle")}
+            </p>
+
+            {/* PDF Card */}
+            <div className="max-w-4xl mx-auto">
+              <Card>
                 <CardContent className="p-3 md:p-7">
-                  <div className="w-full">
-                    <div className="relative" style={{ paddingTop: "56.25%" }}>
-                      <iframe
-                        src="https://www.flipbookpdf.net/web/site/a91af593e66c4fca28ebbcd0edaa10d91b3dfa0b202509.pdf.html"
-                        className="absolute top-0 left-0 w-full h-full rounded-lg border"
-                        style={{ minHeight: 350, maxHeight: 700 }}
-                        allowFullScreen
-                        title="Quick View PDF"
-                        frameBorder="0"
-                      ></iframe>
+                  <div className="relative" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://www.flipbookpdf.net/web/site/a91af593e66c4fca28ebbcd0edaa10d91b3dfa0b202509.pdf.html"
+                      className="absolute top-0 left-0 w-full h-full rounded-lg border"
+                      style={{ minHeight: 350, maxHeight: 700 }}
+                      allowFullScreen
+                      title="Quick View PDF"
+                      frameBorder="0"
+                    ></iframe>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+
+          <div id="signup" className="py-16 text-center">
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
+              {t("trainingPage.signup.title")}
+            </h2>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mb-10">
+              {t("trainingPage.signup.subtitle")}
+            </p>
+
+            {/* signup Card */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="rounded-2xl shadow-sm">
+                <CardContent className="p-8">
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+                      <p className="text-green-800">Thank you! Your message has been sent successfully.</p>
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                      <p className="text-red-800">Sorry, there was an error sending your message. Please try again.</p>
+                    </div>
+                  )}
+
+                  {/* Form Inputs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                    <div>
+                      <Label htmlFor="name" className="block mb-2 font-medium">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder={t("trainingPage.signup.name")}
+                        disabled={isSubmitting}
+                        className="w-full"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email" className="block mb-2 font-medium">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder={t("trainingPage.signup.email")}
+                        disabled={isSubmitting}
+                        className="w-full"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="phone" className="block mb-2 font-medium">
+                        Phone
+                      </Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder={t("trainingPage.signup.phone")}
+                        disabled={isSubmitting}
+                        className="w-full"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <Label htmlFor="message" className="block mb-2 font-medium">
+                        Message
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder={t("trainingPage.signup.message")}
+                        rows={4}
+                        disabled={isSubmitting}
+                        className="w-full"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <Button
+                        onClick={handleSubmit}
+                        className="w-full mt-4"
+                        disabled={isSubmitting || !isFormValid}
+                      >
+                        {isSubmitting ? 'Sending...' : t("trainingPage.signup.submit")}
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
-                </Card>
-  
-  </div>
-</div>
-
-{/* Sign up form */}
-<div id="signup" className="grid md:grid-cols-3 gap-8 py-16">
-  <div className="md:col-span-1">
-    <h2 className="text-3xl font-bold text-primary mb-3 font-[family-name:var(--font-merriweather)]">
-       {t("trainingPage.signup.title")}
-    </h2>
-    <p className="text-base text-gray-600">
-    {t("trainingPage.signup.subtitle")} 
-    </p>
-  </div>
-  <div className="md:col-span-2">
-  <Card className="rounded-2xl shadow-sm">
-        <CardContent className="p-8">
-          {submitStatus === 'success' && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
-              <p className="text-green-800">Thank you! Your message has been sent successfully.</p>
+              </Card>
             </div>
-          )}
+            {/* partner form */}
           
-          {submitStatus === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-              <p className="text-red-800">Sorry, there was an error sending your message. Please try again.</p>
-            </div>
-          )}
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="name">Name</Label>
-              <Input 
-                id="name" 
-                name="name" 
-                type="text"
-                required 
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder={t("trainingPage.signup.name")}
-                disabled={isSubmitting}
-              />
-            </div>
-            
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder={t("trainingPage.signup.email")}
-                disabled={isSubmitting}
-              />
-            </div>
-            
-            <div>
-              <Label htmlFor="phone">Phone</Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder={t("trainingPage.signup.phone")}
-                disabled={isSubmitting}
-              />
-            </div>
-            
-            <div className="sm:col-span-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder={t("trainingPage.signup.message")}
-                rows={4}
-                disabled={isSubmitting}
-              />
-            </div>
-            
-            <div className="sm:col-span-2">
-              <Button 
-                onClick={handleSubmit}
-                className="w-full"
-                disabled={isSubmitting || !isFormValid}
-              >
-                {isSubmitting ? 'Sending...' : t("trainingPage.signup.submit")}
-              </Button>
-            </div>
           </div>
-        </CardContent>
-      </Card>
-  </div>
-</div>
+        </div>
 
-</div>
+
+
+
       </section>
       {/* End */}
     </div>

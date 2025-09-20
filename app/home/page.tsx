@@ -31,10 +31,11 @@ export default function HomePage() {
   const { t, language } = useLanguage()
   
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <SiteHeader />
+ 
       {/* 1) Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-br from-rose-50 via-white to-emerald-50 overflow-hidden">
+      <section className="relative m-0 px-4 sm:px-0 py-16 md:py-24 bg-gradient-to-br from-rose-50 via-white to-emerald-50 overflow-hidden">
         <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
           <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-rose-200/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl" />
@@ -72,7 +73,7 @@ export default function HomePage() {
       </section>
 
       {/* 2) Safe Birthing Information Hub */}
-      <section id="info" className="py-16 bg-white scroll-mt-24 md:scroll-mt-32">
+      <section id="info" className=" m-0 px-4 sm:px-0  py-16 bg-white scroll-mt-24 md:scroll-mt-32">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
             <Badge variant="secondary" className="mb-3">{t("homePage.hero.information")}</Badge>
@@ -100,7 +101,7 @@ export default function HomePage() {
       </section>
 
       {/* 3) Safety & Awareness Tools */}
-      <section id="tools" className="py-16 bg-muted/30 scroll-mt-24 md:scroll-mt-32">
+      <section id="tools" className=" m-0 px-4 sm:px-0  py-16 bg-muted/30 scroll-mt-24 md:scroll-mt-32">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
             <Badge variant="secondary" className="mb-3">{t("homePage.hero.safetyTools")}</Badge>
@@ -128,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* 4) Our Work (Impact + Resources) */}
-      <section id="work" className="py-16 bg-white scroll-mt-24 md:scroll-mt-32">
+      <section id="work" className=" m-0 px-4 sm:px-0 py-16 bg-white scroll-mt-24 md:scroll-mt-32">
         <div className="container mx-auto max-w-6xl space-y-8">
           <div className="text-center">
             <Badge variant="secondary" className="mb-3">{t("homePage.hero.ourWork")}</Badge>
@@ -269,6 +270,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center text-xs text-muted-foreground">© 2024 Janam</div>
       </footer>
     </div>
+    
   )
 }
 

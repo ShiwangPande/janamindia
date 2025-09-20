@@ -808,8 +808,8 @@ export const translations = {
         csrDesc: "Fund midwife cohorts, equipment, and container clinics.",
         govt: "Govt. Programs",
         govtDesc: "Integrate with NHM and state health missions.",
-        research: "Research Partners",
-        researchDesc: "Measure outcomes, publish evidence, improve protocols.",
+        aastrika: "Aastrika Foundation",
+        aastrikaDesc: "Aastrika Foundation improves maternal and newborn health by training midwives and supporting safe childbirth in India.",
       },
       volunteer: {
         title: "Volunteer Pathways",
@@ -822,6 +822,10 @@ export const translations = {
         techDesc: "Dashboards, chatbot, analytics.",
         application: "Volunteer Application",
         applicationDesc: "Tell us your skills and availability. We'll reach out with a suitable role.",
+      },
+      partner: {
+        application: "Partner Application",
+        applicationDesc: "Tell us your skills and availability. Our team will contact you soon 🙂",
       },
     },
 
@@ -1622,8 +1626,8 @@ export const translations = {
         csrDesc: "दाई समूह, उपकरण और कंटेनर क्लिनिक का वित्तपोषण करें।",
         govt: "सरकारी कार्यक्रम",
         govtDesc: "NHM और राज्य स्वास्थ्य मिशन के साथ एकीकरण।",
-        research: "अनुसंधान भागीदार",
-        researchDesc: "परिणाम मापें, साक्ष्य प्रकाशित करें, प्रोटोकॉल में सुधार करें।",
+        aastrika: "आस्ट्रिका फाउंडेशन",
+        aastrikaDesc: "आस्ट्रिका फाउंडेशन भारत में दाइयों को प्रशिक्षण देकर और सुरक्षित प्रसव में सहायता देकर मातृ एवं नवजात शिशु के स्वास्थ्य में सुधार करता है।",
       },
       volunteer: {
         title: "स्वयंसेवक मार्ग",
@@ -1636,6 +1640,10 @@ export const translations = {
         techDesc: "डैशबोर्ड, चैटबॉट, एनालिटिक्स।",
         application: "स्वयंसेवक आवेदन",
         applicationDesc: "अपने कौशल और उपलब्धता बताएं। हम उपयुक्त भूमिका के साथ संपर्क करेंगे।",
+      },
+      partner: {
+        application: "पार्टनर एप्लिकेशन",
+        applicationDesc: "हमें अपनी योग्यता और उपलब्धता बताएँ। हमारी टीम जल्द ही आपसे संपर्क करेगी 🙂",
       },
     },
     // Contact page additional translations

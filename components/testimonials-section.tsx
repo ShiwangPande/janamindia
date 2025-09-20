@@ -16,12 +16,12 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       id: 1,
-      name: "Kumari Yadav - Mother (Mahapura, Rajasthan)",
+      name: "Kumari Yadav",
       role: "Mother",
       location: "Mahapura, Rajasthan",
       date: "2025-03-12",
       category: "delivery",
-      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/img3_evdmvu.jpg",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758393745/WhatsApp_Image_2025-09-19_at_22.27.55_0a582c08_sghdln.jpg",
       quote: "Very innovative solution. The health check-up felt organized and easy, something new for our village.",
       fullStory: "",
       impact: "",
@@ -29,7 +29,7 @@ export function TestimonialsSection() {
     },
     {
       id: 2,
-      name: "Pooja Sharma - Mother (Jaipur, Rajasthan)",
+      name: "Pooja Sharma",
       role: "Mother",
       location: "Jaipur, Rajasthan",
       date: "2025-05-28",
@@ -42,7 +42,7 @@ export function TestimonialsSection() {
     },
     {
       id: 3,
-      name: "Ravi Patel - Village Head (Krishnagiri, Tamil Nadu)",
+      name: "Ravi Patel",
       role: "Village Head",
       location: "Krishnagiri, Tamil Nadu",
       date: "2025-01-19",
@@ -55,7 +55,7 @@ export function TestimonialsSection() {
     },
     {
       id: 4,
-      name: "Rekha Narsimhan - Mother (Mahapura, Rajasthan)",
+      name: "Rekha Narsimhan",
       role: "Mother",
       location: "Mahapura, Rajasthan",
       date: "2025-07-03",
@@ -68,7 +68,7 @@ export function TestimonialsSection() {
     },
     {
       id: 5,
-      name: "Kamala Devi - Midwife in Training (Jaipur, Rajasthan)",
+      name: "Kamala Devi",
       role: "Midwife in Training",
       location: "Jaipur, Rajasthan",
       date: "2025-06-15",
@@ -81,12 +81,12 @@ export function TestimonialsSection() {
     },
     {
       id: 6,
-      name: "Minal Jain (School Counselor, Jaipur, Rajasthan)",
+      name: "Minal Jain",
       role: "School Counselor",
       location: "Jaipur, Rajasthan",
       date: "2025-02-22",
       category: "community",
-      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1756230943/img4_zctoeu.jpg",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758393439/WhatsApp_Image_2025-09-20_at_23.26.32_ddf88b49_h2secs.jpg",
       quote: "Exceptional thinking, very innovative approach, and so well executed. It’s inspiring to see my students put so much effort into an overlooked cause.",
       fullStory: "",
       impact: "",
