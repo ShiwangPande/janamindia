@@ -171,6 +171,27 @@ export default function HomePage() {
               {t("homePage.ourWork.containerCostDesc")}
             </CardContent>
           </Card>
+            
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-8 py-8">
+      {/* Left: Video Embed */}
+      <div className="relative w-full h-0 pb-[56.25%] shadow-md rounded-xl overflow-hidden">
+        <iframe
+          loading="lazy"
+          className="absolute top-0 left-0 w-full h-full border-0"
+          src="https://www.canva.com/design/DAGfI0aecvg/WLz8bTZobs-t17rDqfXjmg/watch?embed"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      {/* Right: Text Content */}
+      <div className="flex flex-col justify-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">Janam Video</h2>
+        <p className="text-muted-foreground mb-4">
+          This is a special video project created by <strong>Nitya</strong>.  
+          The video showcases creativity, storytelling, and design.
+        </p>
+      </div>
+    </section>
 
           <TestimonialsSection />
           <ContainerWalkthrough />

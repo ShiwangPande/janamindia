@@ -13,7 +13,6 @@ const galleryImages = [
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307903/frame_2_42_0f_woglxd.jpg" },
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307870/frame_2_37_21f_ti7a9t.jpg" },
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307908/frame_2_35_20f_jhfhqi.jpg" },
-  { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307902/frame_2_31_23f_eujnro.jpg" },
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307870/frame_2_29_11f_d2jnc0.jpg" },
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307896/frame_2_03_14f_vqbe6x.jpg" },
   { src: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758307896/frame_1_52_21f_iqzcbg.jpg" },

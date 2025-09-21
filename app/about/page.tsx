@@ -74,42 +74,52 @@ export default function AboutPage() {
       </section>
 
       {/* About Us / Origin */}
-      <section className="py-20 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
-        <div className="container mx-auto max-w-7xl grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-3xl font-bold text-primary mb-6">{t("aboutPage.story.title")}</h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>{t("aboutPage.story.paragraph1")}</p>
-              <p>{t("aboutPage.story.paragraph2")}</p>
-              <p>{t("aboutPage.story.paragraph3")}</p>
-              <p>{t("aboutPage.story.paragraph4")}</p>
-              <p>{t("aboutPage.story.paragraph5")}</p>
-            </div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white shadow-sm border">
-            <h3 className="text-xl font-semibold mb-3">{t("aboutPage.story.different")}</h3>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li>{t("aboutPage.story.different1")}</li>
-              <li>{t("aboutPage.story.different2")}</li>
-              <li>{t("aboutPage.story.different3")}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <section className="py-14 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
+  <div className="container mx-auto max-w-7xl grid md:grid-cols-2 gap-12 items-start">
+    {/* Story Section */}
+    <div className="p-6 rounded-2xl bg-white shadow-sm border">
+      <h2 className="text-3xl font-bold text-primary mb-6">
+        {t("aboutPage.story.title")}
+      </h2>
+      <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
+        <p>{t("aboutPage.story.paragraph1")}</p>
+        <p>{t("aboutPage.story.paragraph2")}</p>
+        <p>{t("aboutPage.story.paragraph3")}</p>
+        <p>{t("aboutPage.story.paragraph4")}</p>
+        <p>{t("aboutPage.story.paragraph5")}</p>
+      </div>
+    </div>
 
+    {/* What Makes Us Different */}
+    <div className="p-6 rounded-2xl bg-white shadow-sm border">
+      <h3 className="text-xl font-semibold mb-4 text-primary">
+        {t("aboutPage.story.different")}
+      </h3>
+      <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed ">
+        <li>{t("aboutPage.story.different1")}</li>
+        <li>{t("aboutPage.story.different2")}</li>
+        <li>{t("aboutPage.story.different3")}</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <section className="py-20 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-primary mb-6">{t("aboutPage.origin.title")}</h2>
-          <p className="text-muted-foreground leading-relaxed space-y-4">
-            {t("aboutPage.origin.paragraph1")}
-            <br /><br />
-            {t("aboutPage.origin.paragraph2")}
-            <br /><br />
-            {t("aboutPage.origin.paragraph3")}
-          </p>
-        </div>
-      </section>
+{/* Origin Section */}
+<section className="pb-20 m-0 px-4 sm:px-0 bg-[#FFF3E6]">
+  <div className="container mx-auto max-w-5xl">
+    <div className="p-6 rounded-2xl bg-white shadow-sm border">
+      <h2 className="text-3xl font-bold text-primary mb-6">
+        {t("aboutPage.origin.title")}
+      </h2>
+      <div className="text-muted-foreground leading-relaxed space-y-4 text-justify">
+        <p>{t("aboutPage.origin.paragraph1")}</p>
+        <p>{t("aboutPage.origin.paragraph2")}</p>
+        <p>{t("aboutPage.origin.paragraph3")}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Timeline */}
       <section className="py-20 m-0 px-4 sm:px-0">

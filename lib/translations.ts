@@ -645,15 +645,15 @@ export const translations = {
         label: "Our Team",
         title: "Meet Our Team",
         subtitle: "Passionate individuals driving change in maternal healthcare",
-        name1: "Eva",
-        name2: "Aarohi",
-        name3: "Nitya",
+        name1: "Eva Bothra",
+        name2: "Aarohi Murdia",
+        name3: "Nitya Agarwal",
         role1: "Co-founder",
         role2: "Clinical Lead (Midwifery)",
-        role3: "Programs & Outreach",
+        role3: "Design Head",
         bio1: "Leads strategy and field partnerships to advance safe birthing.",
         bio2: "Guides training, supervision and kangaroo care best practices.",
-        bio3: "Builds collaborations and community-led implementation."
+        bio3: "Leads design and innovation for maternal and neonatal healthcare solutions."
       },
       story: {
         title: "Our Story",
@@ -1463,15 +1463,15 @@ export const translations = {
         label: "हमारी टीम",
         title: "हमारी टीम से मिलें",
         subtitle: "मातृ स्वास्थ्य सेवा में बदलाव लाने वाले जुनूनी व्यक्ति",
-        name1: "ईवा",
-        name2: "आरोही",
-        name3: "नित्य",
+        name1: "ईवा बोथरा",
+        name2: "आरोही मुर्डिया",
+        name3: "नित्य अग्रवाल",
         role1: "सह संस्थापक",
         role2: "क्लिनिकल लीड (मिडवाइफरी)",
-        role3: "कार्यक्रम और आउटरीच",
+        role3: "डिज़ाइन हेड",
         bio1: "सुरक्षित प्रसव को आगे बढ़ाने के लिए रणनीति और क्षेत्र साझेदारी का नेतृत्व करना.",
         bio2: "प्रशिक्षण, पर्यवेक्षण और कंगारू देखभाल की सर्वोत्तम प्रथाओं का मार्गदर्शन करना।",
-        bio3: "सहयोग और समुदाय-नेतृत्व कार्यान्वयन का निर्माण करता है।"
+        bio3: "मातृ और शिशु स्वास्थ्य समाधान के लिए डिज़ाइन और नवाचार का नेतृत्व करती हैं।"
       },
       story: {
         title: "हमारी कहानी",
