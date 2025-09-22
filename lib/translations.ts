@@ -649,10 +649,10 @@ export const translations = {
         name2: "Aarohi Murdia",
         name3: "Nitya Agarwal",
         role1: "Co-founder",
-        role2: "Clinical Lead (Midwifery)",
+        role2: "Co-founder",
         role3: "Design Head",
         bio1: "Leads strategy and field partnerships to advance safe birthing.",
-        bio2: "Guides training, supervision and kangaroo care best practices.",
+        bio2: "Oversees operations, training programs, and community engagement.",
         bio3: "Leads design and innovation for maternal and neonatal healthcare solutions."
       },
       story: {
@@ -1467,10 +1467,10 @@ export const translations = {
         name2: "आरोही मुर्डिया",
         name3: "नित्य अग्रवाल",
         role1: "सह संस्थापक",
-        role2: "क्लिनिकल लीड (मिडवाइफरी)",
+        role2: "सह संस्थापक",
         role3: "डिज़ाइन हेड",
         bio1: "सुरक्षित प्रसव को आगे बढ़ाने के लिए रणनीति और क्षेत्र साझेदारी का नेतृत्व करना.",
-        bio2: "प्रशिक्षण, पर्यवेक्षण और कंगारू देखभाल की सर्वोत्तम प्रथाओं का मार्गदर्शन करना।",
+        bio2: "स्वास्थ्य नवाचार और कार्यक्रम कार्यान्वयन में विशेषज्ञता.",
         bio3: "मातृ और शिशु स्वास्थ्य समाधान के लिए डिज़ाइन और नवाचार का नेतृत्व करती हैं।"
       },
       story: {
