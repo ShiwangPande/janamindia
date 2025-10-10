@@ -27,7 +27,7 @@ export function ContainerWalkthrough() {
     {
       id: 0,
       title: language === "hi" ? "बाहरी दृश्य" : "Exterior View",
-      image: "/mobile-medical-container-clinic-in-rural-indian-vi.png",
+      image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1760113969/c574c622-fc10-426a-898d-d0dbcfea8419.png",
       description: language === "hi" ? "ग्रामीण पहुँच के लिए डिज़ाइन की गई सौर ऊर्जा संचालित मोबाइल क्लिनिक" : "Solar-powered mobile clinic designed for rural accessibility",
       hotspots: [
         { x: 20, y: 30, title: language === "hi" ? "सौर पैनल" : "Solar Panels", description: language === "hi" ? "100% नवीकरणीय ऊर्जा प्रणाली जो 24/7 बिजली प्रदान करती है" : "100% renewable energy system providing 24/7 power" },
@@ -38,7 +38,7 @@ export function ContainerWalkthrough() {
     {
       id: 1,
       title: language === "hi" ? "डिलीवरी कक्ष" : "Delivery Room",
-      image: "/indian-midwife-helping-pregnant-mother-in-rural-se.png",
+         image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1760113969/c574c622-fc10-426a-898d-d0dbcfea8419.png",
       description: language === "hi" ? "आधुनिक चिकित्सा उपकरणों के साथ पूर्णतः सुसज्जित डिलीवरी कक्ष" : "Fully equipped delivery suite with modern medical equipment",
       hotspots: [
         { x: 30, y: 40, title: language === "hi" ? "डिलीवरी बेड" : "Delivery Bed", description: language === "hi" ? "सुरक्षा सुविधाओं के साथ समायोज्य डिलीवरी बेड" : "Adjustable delivery bed with safety features" },
@@ -54,7 +54,7 @@ export function ContainerWalkthrough() {
     {
       id: 2,
       title: language === "hi" ? "परामर्श क्षेत्र" : "Consultation Area",
-      image: "/indian-woman-holding-newborn-baby--smiling--rural-.png",
+       image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1760113969/c574c622-fc10-426a-898d-d0dbcfea8419.png",
       description: language === "hi" ? "निजी परामर्श और परीक्षण क्षेत्र" : "Private consultation and examination space",
       hotspots: [
         { x: 25, y: 50, title: language === "hi" ? "जांच टेबल" : "Examination Table", description: language === "hi" ? "प्राइवेसी स्क्रीन के साथ आरामदायक जांच क्षेत्र" : "Comfortable examination area with privacy screens" },
@@ -65,7 +65,7 @@ export function ContainerWalkthrough() {
     {
       id: 3,
       title: language === "hi" ? "रिकवरी और शिक्षा" : "Recovery & Education",
-      image: "/group-of-indian-women-in-white-coats-receiving-cer.png",
+   image: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1760113969/c574c622-fc10-426a-898d-d0dbcfea8419.png",
       description: language === "hi" ? "प्रसव के बाद रिकवरी और स्वास्थ्य शिक्षा का स्थान" : "Post-delivery recovery and health education space",
       hotspots: [
         { x: 40, y: 40, title: language === "hi" ? "रिकवरी बेड" : "Recovery Beds", description: language === "hi" ? "माताओं और नवजातों के लिए आरामदायक रिकवरी क्षेत्र" : "Comfortable recovery area for mothers and newborns" },
