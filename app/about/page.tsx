@@ -12,6 +12,7 @@ export default function AboutPage() {
     { name: t("aboutPage.team.name1"), role: t("aboutPage.team.role1"), bio: t("aboutPage.team.bio1"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758130997/362a9542-b062-4d08-a5ee-b6778ed4d2c1.png" },
     { name: t("aboutPage.team.name2"), role: t("aboutPage.team.role2"), bio: t("aboutPage.team.bio2"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758131073/59005312-e9b2-4af1-89aa-c87e52d57d1d.png" },
     { name: t("aboutPage.team.name3"), role: t("aboutPage.team.role3"), bio: t("aboutPage.team.bio3"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758131099/d0944d5a-6b02-4c7b-aaf3-33c692f2eeb9.png" },
+    { name: t("aboutPage.team.name4"), role: t("aboutPage.team.role4"), bio: t("aboutPage.team.bio4"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1761663540/59d61dd0-22d6-41b2-ae94-63bf8f13c828.png" },
   ]
 
   const pillars = [

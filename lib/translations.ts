@@ -648,12 +648,15 @@ export const translations = {
         name1: "Eva Bothra",
         name2: "Aarohi Murdia",
         name3: "Nitya Agarwal",
+        name4: "Saachi Sood",
         role1: "Co-founder",
         role2: "Co-founder",
         role3: "Design Head",
+        role4:"Project Lead",
         bio1: "Leads strategy and field partnerships to advance safe birthing.",
         bio2: "Oversees operations, training programs, and community engagement.",
-        bio3: "Leads design and innovation for maternal and neonatal healthcare solutions."
+        bio3: "Leads design and innovation for maternal and neonatal healthcare solutions.",
+        bio4: "Lead project operations, partnerships, and innovation for Janam’s mobile birthing clinics and midwife training program"
       },
       story: {
         title: "Our Story",
@@ -1466,12 +1469,15 @@ export const translations = {
         name1: "ईवा बोथरा",
         name2: "आरोही मुर्डिया",
         name3: "नित्य अग्रवाल",
+        name4: "साची सूड",
         role1: "सह संस्थापक",
         role2: "सह संस्थापक",
         role3: "डिज़ाइन हेड",
+        role4:"प्रोजेक्ट लीड",
         bio1: "सुरक्षित प्रसव को आगे बढ़ाने के लिए रणनीति और क्षेत्र साझेदारी का नेतृत्व करना.",
         bio2: "स्वास्थ्य नवाचार और कार्यक्रम कार्यान्वयन में विशेषज्ञता.",
-        bio3: "मातृ और शिशु स्वास्थ्य समाधान के लिए डिज़ाइन और नवाचार का नेतृत्व करती हैं।"
+        bio3: "मातृ और शिशु स्वास्थ्य समाधान के लिए डिज़ाइन और नवाचार का नेतृत्व करती हैं।",
+        bio4:"जनम के मोबाइल बर्थिंग क्लीनिक और दाई प्रशिक्षण कार्यक्रम के लिए परियोजना संचालन, साझेदारी और नवाचार का नेतृत्व करें"
       },
       story: {
         title: "हमारी कहानी",
