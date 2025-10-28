@@ -652,7 +652,7 @@ export const translations = {
         role1: "Co-founder",
         role2: "Co-founder",
         role3: "Design Head",
-        role4:"Project Lead",
+        role4: "Co-founder\nLeads Midwife training and partnerships",
         bio1: "Leads strategy and field partnerships to advance safe birthing.",
         bio2: "Oversees operations, training programs, and community engagement.",
         bio3: "Leads design and innovation for maternal and neonatal healthcare solutions.",

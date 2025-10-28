@@ -11,8 +11,8 @@ export default function AboutPage() {
   const team = [
     { name: t("aboutPage.team.name1"), role: t("aboutPage.team.role1"), bio: t("aboutPage.team.bio1"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758130997/362a9542-b062-4d08-a5ee-b6778ed4d2c1.png" },
     { name: t("aboutPage.team.name2"), role: t("aboutPage.team.role2"), bio: t("aboutPage.team.bio2"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758131073/59005312-e9b2-4af1-89aa-c87e52d57d1d.png" },
+    { name: t("aboutPage.team.name4"), role: t("aboutPage.team.role4"), bio: t("aboutPage.team.bio4"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1761664471/5f82a242-ec81-42e4-97e6-06fee13fc85d.png" },
     { name: t("aboutPage.team.name3"), role: t("aboutPage.team.role3"), bio: t("aboutPage.team.bio3"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1758131099/d0944d5a-6b02-4c7b-aaf3-33c692f2eeb9.png" },
-    { name: t("aboutPage.team.name4"), role: t("aboutPage.team.role4"), bio: t("aboutPage.team.bio4"), img: "https://res.cloudinary.com/dqv4mucxh/image/upload/v1761663540/59d61dd0-22d6-41b2-ae94-63bf8f13c828.png" },
   ]
 
   const pillars = [
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <div key={member.name} className="p-6 rounded-2xl bg-white shadow-sm border hover:shadow-lg transition flex flex-col items-center text-center">
               <Image src={member.img} alt={member.name} width={120} height={120} className="rounded-full object-cover ring-4 ring-primary/10" />
               <h3 className="mt-4 text-xl font-semibold">{member.name}</h3>
-              <p className="text-primary font-medium">{member.role}</p>
+              <p className="text-primary font-medium whitespace-pre-line">{member.role}</p>
               <p className="text-muted-foreground mt-2">{member.bio}</p>
             </div>
           ))}
