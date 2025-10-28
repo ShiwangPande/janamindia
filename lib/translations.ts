@@ -652,11 +652,11 @@ export const translations = {
         role1: "Co-founder",
         role2: "Co-founder",
         role3: "Design Head",
-        role4: "Co-founder\nLeads Midwife training and partnerships",
+        role4: "Co-founder",
         bio1: "Leads strategy and field partnerships to advance safe birthing.",
         bio2: "Oversees operations, training programs, and community engagement.",
         bio3: "Leads design and innovation for maternal and neonatal healthcare solutions.",
-        bio4: "Lead project operations, partnerships, and innovation for Janam’s mobile birthing clinics and midwife training program"
+        bio4: "Leads Midwife training and partnerships"
       },
       story: {
         title: "Our Story",
@@ -1473,11 +1473,11 @@ export const translations = {
         role1: "सह संस्थापक",
         role2: "सह संस्थापक",
         role3: "डिज़ाइन हेड",
-        role4:"प्रोजेक्ट लीड",
+        role4:"सह संस्थापक",
         bio1: "सुरक्षित प्रसव को आगे बढ़ाने के लिए रणनीति और क्षेत्र साझेदारी का नेतृत्व करना.",
         bio2: "स्वास्थ्य नवाचार और कार्यक्रम कार्यान्वयन में विशेषज्ञता.",
         bio3: "मातृ और शिशु स्वास्थ्य समाधान के लिए डिज़ाइन और नवाचार का नेतृत्व करती हैं।",
-        bio4:"जनम के मोबाइल बर्थिंग क्लीनिक और दाई प्रशिक्षण कार्यक्रम के लिए परियोजना संचालन, साझेदारी और नवाचार का नेतृत्व करें"
+        bio4:"मिडवाइफ प्रशिक्षण और साझेदारी का नेतृत्व करता है"
       },
       story: {
         title: "हमारी कहानी",
