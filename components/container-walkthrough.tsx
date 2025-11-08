@@ -321,7 +321,7 @@ export function ContainerWalkthrough() {
               </p>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary mb-1">50+</div>
+              <div className="text-2xl font-bold text-primary mb-1">5000+</div>
               <p className="text-sm text-muted-foreground">
                 {language === "hi" ? "जाँच के लिए आई महिलाएँ" : "Women that came for check ups"}
               </p>
